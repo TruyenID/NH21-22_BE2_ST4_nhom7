@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //type1 phone
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 1,
             'name' => 'iPhone 12 Pro Max 512GB',
             'manu_id' =>2,
@@ -39,9 +39,9 @@ class DatabaseSeeder extends Seeder
             Pin, Sạc:3687 mAh20 W ',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 8,
-            'name' => 'Samsung Galaxy Z Fold3 5G 256GB',
+            'name' => 'Samsung Galaxy Z Fold3 5G',
             'manu_id' =>1,
             'type_id' =>1,
             'price' =>36990000,
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             Dung lượng Pin:4400 mAh ',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 3,
             'name' => 'Xiaomi Mi 11 5G',
             'manu_id' =>3,
@@ -76,9 +76,9 @@ class DatabaseSeeder extends Seeder
             Bộ nhớ trong: 256 GB
             SIM:2 Nano SIMHỗ trợ 5G
             Pin, Sạc: 4600mAh, 55W ',
-            'feature' => 1,
+            'feature' => 2,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 4,
             'name' => 'Vivo X70 Pro 5G',
             'manu_id' =>6,
@@ -96,12 +96,12 @@ class DatabaseSeeder extends Seeder
             Bộ nhớ trong:256 GB
             SIM:2 Nano SIMHỗ trợ 5G
             Pin, Sạc:4450mAh, 44W ',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         //type2 laptop
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 6,
-            'name' => 'Laptop Xiaomi MiBook Air 12.5 inch',
+            'name' => 'Laptop Xiaomi MiBook Air',
             'manu_id' =>3,
             'type_id' =>2,
             'price' =>12890000,
@@ -123,9 +123,9 @@ class DatabaseSeeder extends Seeder
             Pin: Pin Li-Po 37w(typ), sạc nhanh 30 phút được 50%, thời gian sử dụng dài nhất 11.5 giờ',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 2,
-            'name' => 'Laptop Asus Gaming Rog Strix G15 G513IH HN015W',
+            'name' => 'Laptop Asus Gaming Rog Strix',
             'manu_id' =>4,
             'type_id' =>2,
             'price' =>21490000,
@@ -142,9 +142,9 @@ class DatabaseSeeder extends Seeder
             Kích thước, trọng lượng:Dài 354 mm - Rộng 259 mm - Dày 206 mm - Nặng 2.1',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 7,
-            'name' => 'Laptop Apple MacBook Air M1 2020 8GB/256GB/7-core GPU (MGN63SA/A)',
+            'name' => 'Laptop Apple MacBook Air M1',
             'manu_id' =>2,
             'type_id' =>2,
             'price' =>24450000,
@@ -164,9 +164,9 @@ class DatabaseSeeder extends Seeder
             Kích thước, trọng lượng:Dài 304.1 mm - Rộng 212.4 mm - Dày 4.1 mm đến 16.1 mm - Nặng 1.29 kg',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 5,
-            'name' => 'Laptop Asus Vivobook 13 Slate Oled T3300KA',
+            'name' => 'Laptop Asus Vivobook 13',
             'manu_id' =>6,
             'type_id' =>2,
             'price' =>17790000,
@@ -183,10 +183,10 @@ class DatabaseSeeder extends Seeder
             Pin: 3-cell Li-ion, 50 Wh
             Trọng lượng: 0.78 kg
             Tính năng đặc biệt: Ổ cứng SSD, Wi-Fi 6, Màn hình cảm ứng, Bảo mật vân tay',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         //type3 tablet
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 10,
             'name' => 'iPad Air 5',
             'manu_id' =>2,
@@ -208,7 +208,7 @@ class DatabaseSeeder extends Seeder
             Trọng lượng: 461 g',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 9,
             'name' => 'Apple iPad Pro 11 128GB',
             'manu_id' =>2,
@@ -232,7 +232,7 @@ class DatabaseSeeder extends Seeder
             'feature' => 1,
         ]);
         //type4 SmartWatch
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 12,
             'name' => 'Apple Watch Series 7 dây thép',
             'manu_id' =>2,
@@ -251,7 +251,7 @@ class DatabaseSeeder extends Seeder
             Bộ nhớ trong: 32GB',
             'feature' => 1,
         ]);
-        DB::table('flights_products')->insert([
+        DB::table('products')->insert([
             'id' => 11,
             'name' => 'Đồng Hồ OPPO Watch 46mm',
             'manu_id' =>5,
@@ -265,12 +265,12 @@ class DatabaseSeeder extends Seeder
             Thời lượng pin: Khoảng 21 ngày (chế độ tiết kiệm pin)Khoảng 36 giờ (chế độ thường)
             Kết nối với hệ điều hành: Android 6.0 trở lêniOS 12 trở lên
             Tính năng cho sức khỏe: Chế độ luyện tậpTheo dõi giấc ngủTính lượng calories tiêu thụTính quãng đường chạyĐo nhịp timĐếm số bước chân',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         //
         DB::table('products')->insert([
             'id' => 22,
-            'name' => 'Pin sạc dự phòng Xiaomi Redmi 20000mAh sạc nhanh 18W',
+            'name' => 'Pin sạc dự phòng Xiaomi Redmi',
             'manu_id' =>3,
             'type_id' =>5,
             'price' =>450000,
@@ -282,11 +282,11 @@ class DatabaseSeeder extends Seeder
             Viên pin dung lượng lớn 20000mAh, sạc hai thiết bị cùng một lúc với công suất tối đa 18W
             Đồng thời, pin sạc này cũng có thể sạc cho nhiều loại điện thoại, máy tính bảng khác nhau, thậm chí là smartwatch.
             Điểm thu hút thứ hai của thiết bị này là đầu vào của pin dự phòng cũng khá ấn tượng khi được trang bị cùng lúc cả hai giao tiếp micro-USB và USB Type-C, tạo điều kiện sạc pin thuận tiện hơn',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         DB::table('products')->insert([
             'id' => 13,
-            'name' => 'Pin dự phòng Xiaomi 20000mAh 50W (BHR5121GL)',
+            'name' => 'Pin dự phòng Xiaomi 20000mAh',
             'manu_id' =>3,
             'type_id' =>5,
             'price' =>1100000,
@@ -298,27 +298,11 @@ class DatabaseSeeder extends Seeder
             Điểm nhấn khác khiến Xiaomi 20.000mAh 50W (BHR5121GL) trở nên nổi bật hơn là nó sở hữu đến 3 cổng sạc nhanh: 2 cổng USB-A và 1 cổng USB-C, có thể sạc cùng lúc nhiều thiết bị nhưng vẫn cho ra thông số ấn tượng.
             Pin dự phòng Xiaomi 20.000mAh 50W (BHR5121GL) không chỉ có thể sạc đồng thời nhiều thiết bị cùng lúc mà còn mang đến một tốc độ sạc ấn tượng với công suất sạc đạt đến 50W và đương nhiên, nó sẽ tốc độ sạc đạt nhanh hơn so với các bộ sạc 5W thông thường đến 50%.
             Nếu bạn đang tìm kiếm một sạc dự phòng giá tốt mà chất lượng sạc phải nhanh và đảm bảo an toàn thì Xiaomi 20.000mAh 50W (BHR5121GL) chính là lựa chọn hoàn hảo đó nhé!',
-            'feature' => 1,
-        ]);
-        DB::table('products')->insert([
-            'id' => 14,
-            'name' => 'Pin sạc dự phòng Xiaomi Redmi VXN4305GL 10.000mAh',
-            'manu_id' =>3,
-            'type_id' =>5,
-            'price' =>280000,
-            'image'=> 'pin-sac-du-phong-xiaomi-redmi-vxn4305gl-10000mah.jpg',
-            'description' =>  '      
-            Sạc thả ga với pin sạc dự phòng Xiaomi Redmi VNX4305GL 10000mAh
-            Pin sạc dự phòng Xiaomi Redmi 10000mAh được thiết kế khá nhỏ gọn với trọng lượng 300g cùng các bo góc ấn tượng khiến mang đến bạn cảm giác lúc cầm nắm trong tay rất dễ chịu. 
-            Dung lượng 10.000 mAh, sạc nhiều lần hơn trong ngày
-            Cổng vào Type C, Micro-USB và 2 cổng ra USB-C
-            Chiếc sạc dự phòng này được trang bị cổng sạc với cường độ dòng điện ra 5V - 2.6A, hỗ trợ sạc nhanh tối đa, cùng với 2 cổng đầu ra USB-C.
-            Một trong những điểm khiến Xiaomi Redmi 10000mAh nổi bật hơn những chiếc pin sạc dự phòng khác chính là ở khả năng sạc nhanh thông qua cổng USB Type C.',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         DB::table('products')->insert([
             'id' => 15,
-            'name' => 'Pin sạc dự phòng SamSung EB-P3300X 10.000 MAH sạc nhanh 25W chính hãng',
+            'name' => 'Pin sạc dự phòng SamSung',
             'manu_id' =>1,
             'type_id' =>5,
             'price' =>690000,
@@ -333,7 +317,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 16,
-            'name' => 'Pin dự phòng Samsung kiêm sạc không dây 10000 mAh EB-U1200',
+            'name' => 'Pin dự phòng Samsung không dây',
             'manu_id' =>1,
             'type_id' =>5,
             'price' =>790000,
@@ -344,11 +328,11 @@ class DatabaseSeeder extends Seeder
             Phần vỏ được làm bằng hợp kim nhôm kết hợp với độ gia công nhỏ gọn mang đến sự tiện dụng tối đa cho bạn khi mang theo đi du lịch, đi công tác.
             Sạc nhanh 2 chiều tối đa 15W, dung lương lưu trữ lên đến 10000 mAh
             Tương thích sạc không dây chuẩn Qi',
-            'feature' => 1,
+            'feature' =>2,
         ]);
         DB::table('products')->insert([
             'id' => 17,
-            'name' => 'Pin dự phòng Apple Magsafe | Chính hãng Apple Việt Nam (MJWY3)',
+            'name' => 'Pin dự phòng Apple Magsafe',
             'manu_id' =>2,
             'type_id' =>5,
             'price' =>2290000,
@@ -363,7 +347,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 18,
-            'name' => 'Tai nghe không dây Xiaomi Redmi Buds 3',
+            'name' => 'Tai nghe không dây Xiaomi',
             'manu_id' =>3,
             'type_id' =>6,
             'price' =>1190000,
@@ -374,11 +358,11 @@ class DatabaseSeeder extends Seeder
             Tai nghe với thiết kế màu trắng tinh tế, sang trong khi sử dụng. Đặc biệt, tai nghe còn được trang bị công nghệ kháng nước và bụi bẩn IP54, nhờ đó người dùng có thể sử dụng tai nghe trong tập luyện.
             Xiaomi Redmi Buds 3 được trang bị driver có kích thước lên đến 12nm mang lại khả năng tái tạo tinh chỉnh âm phù hợp với xung hướng cụ thị trường.
             ai nghe Xiaomi Redmi Buds 3 chính hãng với thiết kế tinh tế sang trọng cùng âm thanh chất lượng mang lại trải nghiệm giải trí ấn tượng cho người dùng.',
-            'feature' => 1,
+            'feature' => 2,
         ]);
         DB::table('products')->insert([
             'id' => 19,
-            'name' => 'Tai nghe Bluetooth Apple AirPods Pro 2021 Magsafe | Chính hãng Apple Việt Nam',
+            'name' => 'Tai nghe Bluetooth Apple AirPods',
             'manu_id' =>2,
             'type_id' =>6,
             'price' =>4690000,
@@ -393,7 +377,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 20,
-            'name' => 'Tai nghe Bluetooth Samsung Galaxy Buds Pro',
+            'name' => 'Tai nghe Bluetooth Samsung',
             'manu_id' =>1,
             'type_id' =>6,
             'price' =>2490000,
@@ -410,7 +394,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 21,
-            'name' => 'Loa Bluetooth Apple Homepod Mini',
+            'name' => 'Loa Bluetooth Apple Homepod',
             'manu_id' =>2,
             'type_id' =>7,
             'price' =>23390000,
@@ -426,7 +410,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 23,
-            'name' => 'Asus ZenBeam Latte: Loa Bluetooth tích hợp máy chiếu xem video',
+            'name' => 'Asus ZenBeam Latte',
             'manu_id' =>4,
             'type_id' =>7,
             'price' =>23390000,
@@ -434,7 +418,7 @@ class DatabaseSeeder extends Seeder
             'description' =>  '      
             Asus ZenBeam Latte: Loa Bluetooth tích hợp máy chiếu kích thước nhỏ bằng tách cafe
             Thời lượng pin asus zenbeam latte nghe nhạc 12 tiếng và xem video 3 tiếng',
-            'feature' => 1,
+            'feature' => 2,
         ]);
 
 
