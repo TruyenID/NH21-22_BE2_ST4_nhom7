@@ -18,7 +18,255 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        //type1 phone
+        DB::table('flights_products')->insert([
+            'id' => 1,
+            'name' => 'iPhone 12 Pro Max 512GB',
+            'manu_id' =>2,
+            'type_id' =>1,
+            'price' =>34090000,
+            'image'=> 'iphone-12-pro-max-512gb-xanh-duong-1-org.jpg',
+            'description' =>  '      
+            Cấu hình Điện thoại iPhone 12 Pro Max 512GB
+            Màn hình:OLED6.7"Super Retina XDR
+            Hệ điều hành: iOS 15
+            Camera sau: 3 camera 12 MP
+            Camera trước:12 MP
+            Chip: Apple A14 Bionic
+            RAM: 6 GB
+            Bộ nhớ trong: 512 GB
+            SIM:1 Nano SIM & 1 eSIMHỗ trợ 5G
+            Pin, Sạc:3687 mAh20 W ',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 8,
+            'name' => 'Samsung Galaxy Z Fold3 5G 256GB',
+            'manu_id' =>1,
+            'type_id' =>1,
+            'price' =>36990000,
+            'image'=> 'samsung-galaxy-z-fold3-5g-1.jpg',
+            'description' =>  '      
+            Cấu hình Điện thoại Samsung Galaxy Z Fold3 5G 256GB
+            Màn hình:Chính: 7.6 inch, 
+            Hệ điều hành: android 11
+            Camera sau: 12.0 MP + 12.0 MP + 12.0 MP
+            Camera trước:10.0 MP
+            RAM: 12 GB
+            Bộ nhớ trong: 256 GB
+            SIM:2 - 2 Nano SIM hoặc 1 eSIM, 1 Nano SIM
+            Dung lượng Pin:4400 mAh ',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 3,
+            'name' => 'Xiaomi Mi 11 5G',
+            'manu_id' =>3,
+            'type_id' =>1,
+            'price' =>21990000,
+            'image'=> 'xiaomi-mi-11-lite-4g-blue-600x600.jpg',
+            'description' =>  '      
+            Cấu hình Điện thoại Xiaomi Mi 11 5G
+            Màn hình:AMOLED6.81"Quad HD+ (2K+) 
+            Hệ điều hành: android 11
+            Camera sau: Chính 108 MP & Phụ 13 MP, 5 MP
+            Camera trước: 20 MP
+            RAM: 8 GB
+            Chip: Snapdragon 888
+            Bộ nhớ trong: 256 GB
+            SIM:2 Nano SIMHỗ trợ 5G
+            Pin, Sạc: 4600mAh, 55W ',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 4,
+            'name' => 'Vivo X70 Pro 5G',
+            'manu_id' =>6,
+            'type_id' =>1,
+            'price' =>19990000,
+            'image'=> 'vivo-x70-pro-xanh-hong-1-600x600.jpg',
+            'description' =>  '      
+            Cấu hình Điện thoại Vivo X70 Pro 5G
+            Màn hình:AMOLED6.56"Full HD+
+            Hệ điều hành:Android 11
+            Camera sau:Chính 50 MP & Phụ 12 MP, 12 MP, 8 MP
+            Camera trước:32 MP
+            Chip:MediaTek Dimensity 1200
+            RAM:12 GB
+            Bộ nhớ trong:256 GB
+            SIM:2 Nano SIMHỗ trợ 5G
+            Pin, Sạc:4450mAh, 44W ',
+            'feature' => 1,
+        ]);
+        //type2 laptop
+        DB::table('flights_products')->insert([
+            'id' => 6,
+            'name' => 'Laptop Xiaomi MiBook Air 12.5 inch',
+            'manu_id' =>3,
+            'type_id' =>2,
+            'price' =>12890000,
+            'image'=> 'laptop-xiaomi-mi-notebook-air-12.5-inch-thiet-ke-746x400.jpg',
+            'description' =>  '      
+            Cấu hình Laptop Xiaomi MiBook Air 12.5 inch
+            Kích thước: 292mm x 202mm x 12.9mm
+            Trọng lượng: 1.07kg
+            Màn hình: 12.5″ Full HD 1920 x 1080 (176 ppi) 16:9
+            CPU: Intel Core M3 6Y30 (4M Cache, up to 2.20 GHz)
+            GPU: Intel HD Graphics 515
+            Bộ nhớ: 128G SATA SSD (có thể mở rộng thêm một thanh SSD)
+            RAM: 4G LPDDR3 1866MHz
+            Máy ảnh: Camera 1.0MP 1280 x 720
+            WIFI: Intel 2X2, 802.11 b/g/n/ac, 2.4GHz、5GHz
+            Âm thanh: Chip âm thanh Realtek ALC255, Loa đôi AKG 2Wx2, Dolby Audio™ Premium
+            Kết nối: 1 cổng USB 3.0 (tốc độ 5 Gbps), HDMI 4K, Jack 3.5mm, Type-C
+            Hệ điều hành: Windows 10 Home
+            Pin: Pin Li-Po 37w(typ), sạc nhanh 30 phút được 50%, thời gian sử dụng dài nhất 11.5 giờ',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 2,
+            'name' => 'Laptop Asus Gaming Rog Strix G15 G513IH HN015W',
+            'manu_id' =>4,
+            'type_id' =>2,
+            'price' =>21490000,
+            'image'=> 'd6bb72333118eea373fd684372ba8dc2.jpg',
+            'description' =>  '      
+            Cấu hình Laptop Asus Gaming Rog Strix G15 G513IH HN015W
+            CPU:Ryzen 74800H2.9GHz
+            RAM:8 GBDDR4 2 khe (1 khe 8GB + 1 khe rời)3200 MHz
+            Ổ cứng:512 GB SSD NVMe PCIe
+            Màn hình:15.6"Full HD (1920 x 1080)144Hz
+            Card màn hình:Card rờiGTX 1650 4GB
+            Cổng kết nối:3 x USB 3.2HDMIJack tai nghe 3.5 mmLAN (RJ45)USB Type-C (Power Delivery and DisplayPort)
+            Hệ điều hành:Windows 10 Home SL
+            Kích thước, trọng lượng:Dài 354 mm - Rộng 259 mm - Dày 206 mm - Nặng 2.1',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 7,
+            'name' => 'Laptop Apple MacBook Air M1 2020 8GB/256GB/7-core GPU (MGN63SA/A)',
+            'manu_id' =>2,
+            'type_id' =>2,
+            'price' =>24450000,
+            'image'=> 'Laptop Apple MacBook Air M1 2020.jpg',
+            'description' =>  '      
+            Cấu hình Laptop Apple MacBook Air M1 2020
+            CPU:Apple M1
+            RAM:8 GB
+            Ổ cứng:256 GB SSD
+            Màn hình:13.3"Retina (2560 x 1600)
+            Card màn hình:Card tích hợp7 nhân GPU
+            Cổng kết nối:2 x Thunderbolt 3 (USB-C)Jack tai nghe 3.5 mm
+            Đặc biệt:Có đèn bàn phím
+            Hệ điều hành:Mac OS
+            
+            Thiết kế:Vỏ kim loại nguyên khối
+            Kích thước, trọng lượng:Dài 304.1 mm - Rộng 212.4 mm - Dày 4.1 mm đến 16.1 mm - Nặng 1.29 kg',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 5,
+            'name' => 'Laptop Asus Vivobook 13 Slate Oled T3300KA',
+            'manu_id' =>6,
+            'type_id' =>2,
+            'price' =>17790000,
+            'image'=> 'Laptop Asus Vivobook 13 Slate Oled T3300KA.jpg',
+            'description' =>  '      
+            Cấu hình Laptop Asus Vivobook 13 Slate Oled T3300KA
+            Kích thước màn hình: 13.3 inches
+            Trọng lượng: 0.78 kg            
+            CPU: Intel Pentium Silver N6000 1.1 GHz (4M Cache, up to 3.3 GHz, 4 cores)
+            Card đồ họa: Intel® UHD
+            Bộ nhớ: 128G SATA SSD (có thể mở rộng thêm một thanh SSD)
+            RAM: 8GB
+            Hệ điều hành: Windows 11 Home
+            Pin: 3-cell Li-ion, 50 Wh
+            Trọng lượng: 0.78 kg
+            Tính năng đặc biệt: Ổ cứng SSD, Wi-Fi 6, Màn hình cảm ứng, Bảo mật vân tay',
+            'feature' => 1,
+        ]);
+        //type3 tablet
+        DB::table('flights_products')->insert([
+            'id' => 10,
+            'name' => 'iPad Air 5',
+            'manu_id' =>2,
+            'type_id' =>3,
+            'price' =>17790000,
+            'image'=> 'iPad Air 5.jpg',
+            'description' =>  '      
+            Cấu hình iPad Air 5
+            Kích thước màn hình: 10.9 inches
+            Công nghệ màn hình: Liquid Retina
+            Camera sau: 12MP
+            Camera trước: 12MP
+            Chipset: Chip M1
+            Dung lượng: RAM 8 GB
+            Bộ nhớ trong: 64 GB
+            Hệ điều hành: iPadOS
+            Độ phân giải màn hình: 2360 x 1640 pixel
+            Loại CPU: CPU 8 nhân
+            Trọng lượng: 461 g',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 9,
+            'name' => 'Apple iPad Pro 11 128GB',
+            'manu_id' =>2,
+            'type_id' =>3,
+            'price' =>19950000,
+            'image'=> 'Apple iPad Pro 11.jpg',
+            'description' =>  '      
+            Cấu hình Apple iPad Pro 11
+            Kích thước màn hình	11 inches
+            Công nghệ màn hình: IPS LCD
+            Camera sau: 12MP góc rộng,10MP góc siêu rộng
+            Camera trước:12MP góc siêu rộng 122 độ
+            Chipset: Apple M1 8 nhân
+            Dung lượng RAM:	8 GB
+            Bộ nhớ trong: 128 GB
+            Pin: 7538mAh
+            Hệ điều hành: iPadOS
+            Độ phân giải màn hình: 2048 x 2732 pixels
+            Loại CPU: 8 nhân CPU
+            Trọng lượng: 466 g',
+            'feature' => 1,
+        ]);
+        //type4 SmartWatch
+        DB::table('flights_products')->insert([
+            'id' => 12,
+            'name' => 'Apple Watch Series 7 dây thép',
+            'manu_id' =>2,
+            'type_id' =>3,
+            'price' =>19700000,
+            'image'=> 'Apple Watch Series 7.jpg',
+            'description' =>  '      
+            Cấu hình: Apple Watch Series 7
+            Kích thước:	45 x 38 x 10.7 mm (1.77 x 1.50 x 0.42 in)
+            SIM: eSIM
+            Chipset: Apple S7
+            Camera trước: 12MP góc siêu rộng 122 độ
+            Chipset: Apple M1 8 nhân
+            CPU: Dual-core
+            GPU: PowerVR
+            Bộ nhớ trong: 32GB',
+            'feature' => 1,
+        ]);
+        DB::table('flights_products')->insert([
+            'id' => 11,
+            'name' => 'Đồng Hồ OPPO Watch 46mm',
+            'manu_id' =>5,
+            'type_id' =>3,
+            'price' =>7990000,
+            'image'=> 'avatar-dong-ho-thong-minh-oppo-watch.jpg',
+            'description' =>  '      
+            Cấu hình đồng hồ OPPO Watch 46mm
+            Màn hình: AMOLED1.91 inch
+            Mặt: Kính cường lực46 mm
+            Thời lượng pin: Khoảng 21 ngày (chế độ tiết kiệm pin)Khoảng 36 giờ (chế độ thường)
+            Kết nối với hệ điều hành: Android 6.0 trở lêniOS 12 trở lên
+            Tính năng cho sức khỏe: Chế độ luyện tậpTheo dõi giấc ngủTính lượng calories tiêu thụTính quãng đường chạyĐo nhịp timĐếm số bước chân',
+            'feature' => 1,
+        ]);
         //
         DB::table('products')->insert([
             'id' => 22,
@@ -192,7 +440,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('protypes')->insert([
             'type_id' => 1 ,
-            'type_name' => 'Phone',              
+            'type_name' => 'Smartphone',              
         ]);
             
         DB::table('protypes')->insert([
