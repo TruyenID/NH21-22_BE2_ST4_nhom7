@@ -13,15 +13,12 @@ use App\Http\Controllers\MyController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/{name?}',[MyController::class, 'index']);
-
-Route::get('/', function () {
-    return view('index');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 require __DIR__.'/auth.php';
+
 Route::get('/{name?}',[MyController::class, 'index']);
+
 

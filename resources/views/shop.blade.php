@@ -43,11 +43,12 @@
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
-							
+							@foreach($protype as $row)
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry"></li>
+                            <li data-filter=".strawberry">{$row->type_name}}</li>
                             <li data-filter=".berry">Berry</li>
                             <li data-filter=".lemon">Lemon</li>
+							@endforeach
                         </ul>
                     </div>
                 </div>
