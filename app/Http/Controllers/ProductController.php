@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use DB;
+use Session;
+use App\Http\Controllers\table;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Protype;
+use App\Models\Manufacture;
+session_start();
 
 class ProductController extends Controller
 {
@@ -79,6 +87,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        echo "Day la trang destroy ".$id;
+        DB::table('products')->delete($id);
+        return Redirect::to('admin_products');
     }
 }

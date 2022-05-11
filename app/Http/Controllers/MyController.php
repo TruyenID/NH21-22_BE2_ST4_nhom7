@@ -2,22 +2,32 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
-use App\Models\Manufacture;
-use App\Models\Protype;
-
 use Illuminate\Http\Request;
+use DB;
+use Session;
+use App\Http\Controllers\table;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Protype;
+use App\Models\Manufacture;
+session_start();
 
 class MyController extends Controller
 {
-    function index($name = 'index'){
-        $protypes = Protype::where('type_id','>',0)->get();
-        $products = Product::where('id','>',0)->get();
+    function index($name = 'index')
+    {
+        $protypes = DB::table('protypes','products')->get();
+        $products = DB::table('products')->get();
         $topSell = Product::where('feature','=',1)->get();
-        //  = Product::where('manu_id','=',1)->get();
-        return view($name,
-        ['topSelling'=>$topSell],   
-        ['data'=>$products],
-        ['protype'=> $protypes]);
+
+        return view($name,compact('Allprotypes','Allproducts','AlltopSell'));
+    }
+    function shop(){
+        $protypes = DB::table('protypes','products')->get();
+        $products = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        return view('shop',['getAllprotype'=> $protypes],['data'=>$products],['topSelling'=>$topSell]);
+        
+        // return view('shop',compact('protypes','products','topSell'));
     }
     // function register(Request $request){
     //     $request->flash();

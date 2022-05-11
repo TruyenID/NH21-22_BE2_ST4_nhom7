@@ -16,7 +16,6 @@ class CreateProtypesTable extends Migration
         Schema::create('protypes', function (Blueprint $table) {
             $table->id('type_id');
             $table->string('type_name',100);
-            $table->timestamps();
         });
     }
 

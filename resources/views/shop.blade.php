@@ -1,4 +1,4 @@
-	@extends('layout')
+@extends('layout')
 	@section('content')
 
 	<!-- search area -->
@@ -43,12 +43,10 @@
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
-							@foreach($protype as $row)
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry">{$row->type_name}}</li>
-                            <li data-filter=".berry">Berry</li>
-                            <li data-filter=".lemon">Lemon</li>
-							@endforeach
+                            @foreach($protypes as $row)
+                            <li data-filter=".strawberry">{{$row->type_name }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -61,7 +59,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($data as $row)
+				@foreach($products as $row)
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
@@ -75,6 +73,13 @@
 				@endforeach
 			</div>
 			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Top</span> Sellings</h3>
@@ -82,7 +87,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($topSelling as $row)
+				@foreach($topSell as $row)
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
@@ -95,20 +100,6 @@
 					</div>
 					@endforeach
 				</div>
-			
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-						<ul>
-							<li><a href="#">Prev</a></li>
-							<li><a href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 	<!-- end products -->
