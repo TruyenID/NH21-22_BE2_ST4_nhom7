@@ -43,12 +43,10 @@
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
-							@foreach($protype as $row)
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry">{$row->type_name}}</li>
+                            <li data-filter=".strawberry"></li>
                             <li data-filter=".berry">Berry</li>
                             <li data-filter=".lemon">Lemon</li>
-							@endforeach
                         </ul>
                     </div>
                 </div>
@@ -75,6 +73,14 @@
 				@endforeach
 			</div>
 			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap">
+						{{ $data->links() }}
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Top</span> Sellings</h3>
@@ -95,20 +101,7 @@
 					</div>
 					@endforeach
 				</div>
-			
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-						<ul>
-							<li><a href="#">Prev</a></li>
-							<li><a href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+				{{ $topSelling -> links() }}
 		</div>
 	</div>
 	<!-- end products -->
