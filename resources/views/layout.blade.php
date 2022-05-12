@@ -10,26 +10,26 @@
 	<title>Electro</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="{{url ('assets/img/favicon.png') }}">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/all.min.css') }}">
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url ('assets/bootstrap/css/bootstrap.min.css') }}">
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/owl.carousel.css') }}">
 	<!-- magnific popup -->
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/magnific-popup.css') }}">
 	<!-- animate css -->
-	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/animate.css') }}">
 	<!-- mean menu css -->
-	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/meanmenu.min.css') }}">
 	<!-- main style -->
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/main.css') }}">
 	<!-- responsive -->
-	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="{{ url ('assets/css/responsive.css') }}">
 
 </head>
 <body>
@@ -61,13 +61,11 @@
 								<li class="current-list-item"><a href="{{url ('index')}}">Home</a>
 									<ul class="sub-menu">
 										<li><a href="{{url ('index')}}">Static Home</a></li>
-										<li><a href="{{url ('index_2')}}">Slider Home</a></li>
 									</ul>
 								</li>
 								<li><a href="{{url ('about')}}">About</a></li>
 								<li><a href="#">Pages</a>
 									<ul class="sub-menu">
-										<li><a href="{{url ('404')}}">404 page</a></li>
 										<li><a href="{{url ('index')}}">About</a></li>
 										<li><a href="{{url ('cart')}}">Cart</a></li>
 										<li><a href="{{url ('checkout')}}">Check Out</a></li>
@@ -183,25 +181,25 @@
 	<!-- end copyright -->
 	
 	<!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="{{ url ('assets/js/jquery-1.11.3.min.js') }}"></script>
 	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{ url ('assets/bootstrap/js/bootstrap.min.js') }}"></script>
 	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
+	<script src="{{ url ('assets/js/jquery.countdown.js') }}"></script>
 	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<script src="{{ url ('assets/js/jquery.isotope-3.0.6.min.js') }}"></script>
 	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
+	<script src="{{ url ('assets/js/waypoints.js') }}"></script>
 	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
 	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="{{ url ('assets/js/jquery.magnific-popup.min.js') }}"></script>
 	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
+	<script src="{{ url ('assets/js/jquery.meanmenu.min.js') }}"></script>
 	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
+	<script src="{{ url ('assets/js/sticker.js') }}"></script>
 	<!-- main js -->
-	<script src="assets/js/main.js"></script>
+	<script src="{{ url ('assets/js/main.js') }}"></script>
 
 </body>
 </html>

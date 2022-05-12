@@ -1,8 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use DB;
+use Session;
+use App\Http\Controllers\table;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\Protype;
+use App\Models\Manufacture;
+session_start();
 
 class ProductController extends Controller
 {
@@ -56,7 +63,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        echo "Day la trang edit ".$id;
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $products =  Product::find($id);
+        return view('admin_editproduct',compact('products','manufactures','protypes'));
     }
 
     /**
@@ -68,7 +78,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "Day la trang update ".$id;
+        $products =  Product::find($id);
+        $products->name = $request->input('name');
+        $products->manu_id = $request->input('manu');
+        $products->type_id = $request->input('type');
+        $products->price = $request->input('price');
+        $products->image = $request->input('image');
+        $products->description = $request->input('des');
+        $products->feature = $request->input('feature');
+        $products->update();
+        return redirect('admin_products')->with("status","Data Update Successfully");
     }
 
     /**
@@ -79,6 +98,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        echo "Day la trang destroy ".$id;
+        DB::table('products')->delete($id);
+        return Redirect::to('admin_products');
     }
 }

@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
-
+use App\Http\Controllers\ControllerAdmin;
+use App\Http\Controllers\ProductController  ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +21,10 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/{name?}',[MyController::class, 'index']);
-
-
+Route::post('/saveproduct',[ControllerAdmin::class, 'save_product']);
+Route::post('/savemanufacture',[ControllerAdmin::class, 'save_manufacture']);
+Route::post('/saveprotype',[ControllerAdmin::class, 'save_protype']);
+Route::post('/saveuser',[ControllerAdmin::class, 'save_user']);
+Route::DELETE('delete/{id}',[ProductController::class, 'destroy']);
+Route::get('admin_editproduct/{id}',[ProductController::class, 'edit']);
+Route::put('update_data/{id}',[ProductController::class, 'edit']);

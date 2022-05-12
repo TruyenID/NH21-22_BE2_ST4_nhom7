@@ -44,9 +44,9 @@
                     <div class="product-filters">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry"></li>
-                            <li data-filter=".berry">Berry</li>
-                            <li data-filter=".lemon">Lemon</li>
+							@foreach($protypes as $item)
+                            <li data-filter=".strawberry">{{$item->type_name}}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($data as $row)
+				@foreach($products as $row)
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
@@ -75,7 +75,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="pagination-wrap">
-						{{ $data->links() }}
+						{{ $products->links() }}
 					</div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($topSelling as $row)
+				@foreach($topSell as $row)
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
@@ -101,7 +101,7 @@
 					</div>
 					@endforeach
 				</div>
-				{{ $topSelling -> links() }}
+				{{ $topSell -> links() }}
 		</div>
 	</div>
 	<!-- end products -->

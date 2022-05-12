@@ -12,17 +12,18 @@ use Illuminate\Http\Request;
 class MyController extends Controller
 {
     function index($name = 'index'){
-        $protypes = Protype::where('type_id','>',0)->get();
-        $products = Product::where('id','>',0)->get();
+        $user = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
         $topSell = Product::where('feature','=',1)->get();
         //  = Product::where('manu_id','=',1)->get();
         $products = DB::table('products')->orderBy('id')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
 
-        return view($name,
-        ['topSelling'=>$topSell],   
-        ['data'=>$products],
-        ['protype'=> $protypes]);
+        return view($name,compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','user'))
+       ;
     }
     // function register(Request $request){
     //     $request->flash();
