@@ -20,6 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        
         echo "Day la trang index";
     }
 

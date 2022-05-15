@@ -4,6 +4,7 @@
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
+<<<<<<< HEAD
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
@@ -23,8 +24,16 @@
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
+=======
+			<form action="" class="form-inline" >
+				<div class="form-group">
+					<input type="form-control" name="key" placeholder="Search by name...">
+>>>>>>> a085b691cc2fe5dd8c2310fee7b49db7e30ab8ea
 				</div>
-			</div>
+				<button type="submit" class="btn btn-primary">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
 		</div>
 	</div>
 	<!-- end search arewa -->

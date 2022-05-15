@@ -26,8 +26,12 @@ class MyController extends Controller
         $products = DB::table('products')->orderBy('id')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
 
+<<<<<<< HEAD
         return view($name,compact('protypes','topSell',   
         'products','protypes','manufactures','Allproducts','users'))
+=======
+        return view($name,compact('protypes','topSell', 'products','protypes','manufactures','Allproducts','user'))
+>>>>>>> a085b691cc2fe5dd8c2310fee7b49db7e30ab8ea
        ;
     }
     function admin($name = 'dashboard'){
@@ -57,5 +61,5 @@ class MyController extends Controller
     //     $request->flash();
     //     $data = $request->tname;
     //     return view('welcome',['name'=>$data]);
-    // }
+    //}
 }
