@@ -21,13 +21,12 @@ class MyController extends Controller
         $products = DB::table('products')->orderBy('id')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
 
-        return view($name,compact('protypes','topSell',   
-        'products','protypes','manufactures','Allproducts','user'))
+        return view($name,compact('protypes','topSell', 'products','protypes','manufactures','Allproducts','user'))
        ;
     }
     // function register(Request $request){
     //     $request->flash();
     //     $data = $request->tname;
     //     return view('welcome',['name'=>$data]);
-    // }
+    //}
 }
