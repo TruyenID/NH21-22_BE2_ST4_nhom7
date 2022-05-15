@@ -1,11 +1,5 @@
-	@extends('layout_admin')
+@extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -13,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product</h1>
+            <h1>User</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">Product</li>
+              <li class="breadcrumb-item active">User</li>
             </ol>
           </div>
         </div>
@@ -49,32 +43,24 @@
                       <th style="width: 1%">
                           ID
                       </th>
-                      <th style="width: 20%"> Name </th>
-                      <th style="width: 15%">Image </th>
-                      <th>Price</th>
-                      <th style="width: 7%">Manufacture</th>
-                      <th style="width: 7%">Protype</th>
-                      <th style="width: 30%">Decription</th>
-                      <th style="width: 20%">Action</th>
+                      <th style="width: 20%"> UserName </th>
+                      <th style="width: 15%">Email </th>
+                      <th>PassWord</th>
                   </tr>
               </thead>
               <tbody>
-				  	@foreach($Allproducts as $row)
+                   @foreach($users as $row)
                   <tr>
-                      <td>{{ $row->id}}</td>
-                      <td><a>{{ $row->name}}</a><br/></td>
-                      <td><img src="assets/img/{{ $row->image}}" alt="loi" style="width:80px" ></td>
-                      <td class="project_progress"> {{ number_format ($row->price) }} VND</td>
-                      <td class="project-state"></td>
-                      <td class="project-state"></td>
-                      <td class="project-state">{{ $row->description}}</td>
+                    <td>{{$row->id}}</td>
+                      <td>{{$row->name}}</td>
+                      <td>{{$row->email}}</a><br/></td>
+                      <td>{{$row->password}}</td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="admin_editproduct/{{$row->id}}">
+                          <a class="btn btn-info btn-sm" href="admin_edituser/{{$row->id}}">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          </form>
                           <form class="btn btn-danger btn-sm" method="POST" action="delete/{{$row->id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
                           @method('DELETE')
                           @csrf
@@ -97,4 +83,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>

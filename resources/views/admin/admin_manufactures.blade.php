@@ -1,11 +1,5 @@
 @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -58,14 +52,12 @@
                       <td>{{$row->manu_id}}</td>
                       <td><a>{{$row->manu_name}}</a><br/></td>
                       <td class="project-actions text-right">
-                        <form class="btn btn-info btn-sm" method="POST" action="edit/{{$row->manu_id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
-                         
-                          @csrf
-                          <i class="fas fa-pencil-alt">
+                      <a class="btn btn-info btn-sm" href="admin_editmanufacture/{{$row->manu_id}}">
+                              <i class="fas fa-pencil-alt">
                               </i>
-                          <button type="submit">Edit</button>
-                        </form>
-                          <form class="btn btn-danger btn-sm" method="POST" action="delete/{{$row->manu_id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
+                              Edit
+                          </a>
+                          <form class="btn btn-danger btn-sm" method="POST" action="deletemanufacture/{{$row->manu_id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
                           @method('DELETE')
                           @csrf
                           <i class="fas fa-trash">
@@ -87,4 +79,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>

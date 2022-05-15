@@ -34,6 +34,14 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
+    public function store_admin(LoginRequest $request)
+    {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect()->intended(RouteServiceProvider::ADMIN);
+    }
 
     /**
      * Destroy an authenticated session.
@@ -51,4 +59,5 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    
 }

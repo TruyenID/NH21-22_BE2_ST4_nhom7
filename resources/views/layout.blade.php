@@ -8,7 +8,6 @@
 
 	<!-- title -->
 	<title>Electro</title>
-
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="{{url ('assets/img/favicon.png') }}">
 	<!-- google font -->
@@ -93,7 +92,23 @@
 									<div class="header-icons">
 										<a class="shopping-cart" href="{{url ('cart')}}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										<a href="{{url ('dashboard') }}"><i class="fa fa-user"></i></a>
+										<a href="{{url ('auth.login') }}"><i class="fa fa-user"></i></a>
+										@if(Auth::check())
+										<div class="dropdown">
+  											<button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
+  											<div id="myDropdown" class="dropdown-content">
+											  <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+											</div>
+										</div>
+										@endif
 									</div>
 								</li>
 							</ul>
@@ -200,6 +215,5 @@
 	<script src="{{ url ('assets/js/sticker.js') }}"></script>
 	<!-- main js -->
 	<script src="{{ url ('assets/js/main.js') }}"></script>
-
 </body>
 </html>

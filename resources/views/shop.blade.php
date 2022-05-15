@@ -14,6 +14,15 @@
 							<button type="submit">Search <i class="fas fa-search"></i></button>
 						</div>
 					</div>
+					<form action="" class="form-inline" >
+				<div class="form-group">
+					<input type="form-control" name="key" placeholder="Search by name...">
+				</div>
+			</div>
+				<button type="submit" class="btn btn-primary">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
 				</div>
 			</div>
 		</div>

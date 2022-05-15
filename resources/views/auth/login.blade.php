@@ -39,18 +39,25 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
-
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                <p style="margin-right:15px">If not have account</p>
+                <a href="{{url('register')}}" style="background:#1f2937;color:#f8f8df;border-radius:8px;padding:6px 12px 6px 12px">Register</a>
+            </div>
+            <div class="items-center justify-end mt-4">
+                <a href="{{url('admin.login_admin')}}" style="background:#1f2937;color:#f8f8df;border-radius:8px;padding:6px 12px 6px 12px">Login Auth</a>
+                <div class="flex items-center justify-end mt-4">
+                    @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                    @endif
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
+                    <x-button class="ml-3">
+                        {{ __('Log in') }}
+                    </x-button>
+                </div>
             </div>
+
         </form>
     </x-auth-card>
 </x-guest-layout>

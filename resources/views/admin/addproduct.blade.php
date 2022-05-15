@@ -1,11 +1,5 @@
 @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -13,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product Edit</h1>
+            <h1>Products Add</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Product Edit</li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item active">Products Add</li>
             </ol>
           </div>
         </div>
@@ -27,9 +21,8 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="{{url ('update_data/'.$products->id) }}" method="post" enctype="multipart/form-data">
-      {{ csrf_field() }}
-      @method('PUT')
+      <form action="{{url ('saveproduct') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -45,11 +38,11 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="inputName">Name</label>
-                <input type="text" id="inputName" class="form-control" name="name" value ="{{$products->name}}">
+                <input type="text" id="inputName" class="form-control" name="name" required>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Manufactures</label>
-                <select id="inputStatus" class="form-control custom-select" name="manu">
+                <select id="inputStatus" class="form-control custom-select" name="manu" required>
                   @foreach($manufactures as $row)
                   <option value="{{$row->manu_id}}" selected >{{$row->manu_name}}</option>
                   @endforeach
@@ -62,11 +55,11 @@
                   <option value="{{$row->type_id}}" selected >{{$row->type_name}}</option>
                   @endforeach
                 </select>
+                <!-- <input type="text" id="inputName" class="form-control" name="type" required> -->
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Price</label>
-                <input type="text" id="inputClientCompany" class="form-control"  
-                name="price" value="{{$products->price}}">
+                <input type="text" id="inputClientCompany" class="form-control"  name="price" required>
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">Image</label>
@@ -91,13 +84,12 @@
               </div>
               <div class="form-group">
                 <label for="inputDescription">Description</label>
-                <textarea id="summernote" class="form-control" rows="4"  name="des" value="{{$products->description}}"></textarea>
+                <textarea id="summernote" class="form-control" rows="4"  name="des"></textarea>
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Feature</label>
-                <input type="text" id="inputClientCompany" class="form-control" value="{{$products->feature}}"  name="feature" required>
+                <input type="text" id="inputClientCompany" class="form-control"  name="feature" required>
               </div>
-
             </div>
             <!-- /.card-body -->
           </div>
@@ -106,7 +98,7 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <input name="submit" type="submit" value="Edit" class="btn btn-success float-right">
+          <input name="submit" type="submit" value="Create new Product" class="btn btn-success float-right">
         </div>
       </div>
       </form>
@@ -115,4 +107,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>
