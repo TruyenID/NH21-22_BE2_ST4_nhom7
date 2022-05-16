@@ -4,18 +4,14 @@
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
+			<form action="" class="form-inline" >
+				<div class="form-group">
+					<input type="form-control" name="key" placeholder="Search by name...">
 				</div>
-			</div>
+				<button type="submit" class="btn btn-primary">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
 		</div>
 	</div>
 	<!-- end search arewa -->
@@ -44,8 +40,8 @@
                     <div class="product-filters">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            @foreach($protypes as $row)
-                            <li data-filter=".strawberry">{{$row->type_name }}</li>
+							@foreach($protypes as $item)
+                            <li data-filter=".strawberry">{{$item->type_name}}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -88,7 +84,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($AlltopSell as $row)
+				@foreach($topSell as $row)
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
@@ -101,6 +97,7 @@
 					</div>
 					@endforeach
 				</div>
+				{{ $topSell -> links() }}
 		</div>
 	</div>
 	<!-- end products -->

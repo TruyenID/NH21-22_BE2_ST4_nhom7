@@ -1,11 +1,5 @@
     @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -39,7 +33,11 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
+<<<<<<< HEAD:resources/views/dashboard.blade.php
               <a href="{{url ('admin_products')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+=======
+              <a href="{{url ('admin.admin_products')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+>>>>>>> a6d976a7cf5a9d46228198b5decebe41744c24b5:resources/views/admin/dashboard.blade.php
             </div>
           </div>
           <!-- ./col -->
@@ -52,7 +50,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="manufactures.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{url ('admin.admin_manufactures')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -66,7 +64,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="user.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{url ('admin.admin_users')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -79,7 +77,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="protypes.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{url ('admin.admin_protypes')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-6">
@@ -117,4 +115,3 @@
   </div>
 <!-- /.content-wrapper -->
  @endsection
-</x-app-layout>
