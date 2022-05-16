@@ -35,6 +35,8 @@ Route::DELETE('deleteproduct/{id}',[ProductController::class, 'destroy']);
 Route::DELETE('deletemanufacture/{id}',[ControllerAdmin::class, 'destroy_manu']);
 Route::DELETE('deleteprotype/{id}',[ControllerAdmin::class, 'destroy_type']);
 Route::get('admin_editproduct/{id}',[ProductController::class, 'edit']);
+Route::put('update_data/{id}',[ProductController::class, 'edit']);
+Route::get('/single-product/{id}/{type_id}', [MyController::class, 'show']);
 Route::put('update_data/{id}',[ProductController::class, 'update']);
 Route::get('admin_editmanufacture/{manu_id}',[ControllerAdmin::class, 'edit_manufacture']);
 Route::put('update_datamanu/{manu_id}',[ControllerAdmin::class, 'update_manufacture']);

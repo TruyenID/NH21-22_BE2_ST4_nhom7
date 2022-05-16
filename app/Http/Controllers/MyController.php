@@ -45,6 +45,13 @@ class MyController extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    public function show($id, $type_id)
+    {
+        $shop = Product::where('id', '=', $id)->select('*')->first();
+        $products = Product::where('type_id', '=',$type_id)->get();
+        $des = html_entity_decode($shop->description);
+        return view('single-product', compact('shop','products', 'des'));
+    }
     public function AuthLogin(){
         $id = Session::get('id');
         if($id){

@@ -61,7 +61,11 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
+<<<<<<< HEAD
 							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
+=======
+							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
+>>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
 						</div>
 						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
@@ -90,9 +94,13 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
+<<<<<<< HEAD
 								<a href="single-product.html"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
+=======
+								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
+>>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
 							</div>
-							<h3>{{ $row->name }}</h3>
+							<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 							<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
 							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 						</div>
