@@ -25,6 +25,13 @@ class MyController extends Controller
         'products','protypes','manufactures','Allproducts','user'))
        ;
     }
+    public function show($id, $type_id)
+    {
+        $shop = Product::where('id', '=', $id)->select('*')->first();
+        $products = Product::where('type_id', '=',$type_id)->get();
+        $des = html_entity_decode($shop->description);
+        return view('single-product', compact('shop','products', 'des'));
+    }
     // function register(Request $request){
     //     $request->flash();
     //     $data = $request->tname;

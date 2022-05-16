@@ -28,3 +28,4 @@ Route::post('/saveuser',[ControllerAdmin::class, 'save_user']);
 Route::DELETE('delete/{id}',[ProductController::class, 'destroy']);
 Route::get('admin_editproduct/{id}',[ProductController::class, 'edit']);
 Route::put('update_data/{id}',[ProductController::class, 'edit']);
+Route::get('/single-product/{id}/{type_id}', [MyController::class, 'show']);

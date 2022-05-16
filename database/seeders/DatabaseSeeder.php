@@ -236,7 +236,7 @@ class DatabaseSeeder extends Seeder
             'id' => 12,
             'name' => 'Apple Watch Series 7 dây thép',
             'manu_id' =>2,
-            'type_id' =>3,
+            'type_id' =>4,
             'price' =>19700000,
             'image'=> 'Apple Watch Series 7.jpg',
             'description' =>  '      
@@ -255,7 +255,7 @@ class DatabaseSeeder extends Seeder
             'id' => 11,
             'name' => 'Đồng Hồ OPPO Watch 46mm',
             'manu_id' =>5,
-            'type_id' =>3,
+            'type_id' =>4,
             'price' =>7990000,
             'image'=> 'avatar-dong-ho-thong-minh-oppo-watch.jpg',
             'description' =>  '      
