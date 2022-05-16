@@ -89,7 +89,6 @@ class ControllerAdmin extends Controller
     }
     //Thêm User
     public function save_user(Request $request){
-       
         $data = array();
         $data['name'] = $request->username;
         $data['email'] = $request->email;
@@ -187,19 +186,63 @@ class ControllerAdmin extends Controller
     }
     public function show_admin_adduser(){
         $this->AuthLogin();
-        return view('admin.adduser');
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.adduser',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users'))
+       ;
     }
     public function show_admin_addproduct(){
         $this->AuthLogin();
-        return view('admin.addproduct');
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.addproduct',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users'))
+       ;
     }
     public function show_admin_addprotype(){
-        $this->AuthLogin();
-        return view('admin.addproduct');
+        $this->AuthLogin(); 
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.addprotype',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users'))
+       ;
     }
     public function show_admin_addmanufacture(){
         $this->AuthLogin();
-        return view('admin.addproduct');
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.addmanufacture',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users'))
+       ;
     }
     public function show_admin_user(){
         $this->AuthLogin();

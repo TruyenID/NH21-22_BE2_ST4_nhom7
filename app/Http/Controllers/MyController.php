@@ -53,17 +53,31 @@ class MyController extends Controller
             return Redirect::to('admin.login_admin')->send();
         }
     }
-    // function shop(){
-    //     $products = DB::table('products')->orderBy('id')->Paginate(6);
-    //     $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+    public function getProtypes($type_id)
+    {
+        $protypes = DB::table('protypes')->get();
+        $protype_id = Protype::where('type_id',$type_id)->first();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        // $products_pt = DB::table('products')->orderBy('id')->Paginate(6);
+        $products = Product::where('type_id',$protype_id->type_id)->Paginate(3);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
 
-    //      return view('shop',
-    //     ['AlltopSell'=>$topSell],   
-    //     ['Allproducts'=>$products]);
-    // }
-    // function register(Request $request){
-    //     $request->flash();
-    //     $data = $request->tname;
-    //     return view('welcome',['name'=>$data]);
-    //}
+        return view('/shop',compact('protypes','topSell',   
+        'products','protype_id'));
+    }
+    public function show_shop()
+    {
+        $protypes = DB::table('protypes')->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        return view('/shop',compact('protypes','topSell','products'));
+    }
+    public function show($id, $type_id)
+    {
+        $shop = Product::where('id', '=', $id)->select('*')->first();
+        $products = Product::where('type_id', '=',$type_id)->get();
+        $des = html_entity_decode($shop->description);
+        return view('single-product', compact('shop','products', 'des'));
+    }
 }
