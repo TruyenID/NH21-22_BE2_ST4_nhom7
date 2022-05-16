@@ -25,6 +25,7 @@ Route::get('/shop',[ControllerAdmin::class, 'getProtype']);
 Route::get('/{name?}',[MyController::class, 'index']);
 
 
+
 Route::get('/addproduct',[ControllerAdmin::class, 'add_product']);
 Route::post('/saveproduct',[ControllerAdmin::class, 'save_product']);
 Route::get('/addproduct',[ControllerAdmin::class, 'getAllManu']);

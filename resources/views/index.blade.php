@@ -96,11 +96,11 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach($data as $row)
+				@foreach($products as $row)
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
+							<a href="single-product.html"><img class="img-fluid" src="assets/img/{{$row->image}}" alt=""></a>
 						</div>
 						<h3>{{ $row->name }}</h3>
 						<p class="product-price"><span></span>{{ number_format($row->price)}} VND</p>

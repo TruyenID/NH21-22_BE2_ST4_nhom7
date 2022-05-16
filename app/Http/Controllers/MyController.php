@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use DB;
@@ -16,19 +17,20 @@ class MyController extends Controller
     function index($name = 'index')
     {
         $protypes = DB::table('protypes','products')->get();
-        $products = DB::table('products')->get();
-        $topSell = Product::where('feature','=',1)->get();
 
-        return view($name,compact('Allprotypes','Allproducts','AlltopSell'));
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        return view($name,compact('protypes',['products'=>$products],['topSell'=>$topSell]));
     }
-    function shop(){
-        $protypes = DB::table('protypes','products')->get();
-        $products = DB::table('products')->get();
-        $topSell = Product::where('feature','=',1)->get();
-        return view('shop',['getAllprotype'=> $protypes],['data'=>$products],['topSelling'=>$topSell]);
-        
-        // return view('shop',compact('protypes','products','topSell'));
-    }
+    // function shop(){
+    //     $products = DB::table('products')->orderBy('id')->Paginate(6);
+    //     $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+    //      return view('shop',
+    //     ['AlltopSell'=>$topSell],   
+    //     ['Allproducts'=>$products]);
+    // }
     // function register(Request $request){
     //     $request->flash();
     //     $data = $request->tname;

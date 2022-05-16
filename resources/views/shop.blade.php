@@ -75,6 +75,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="pagination-wrap">
+						{{ $products->links() }}
 					</div>
 				</div>
 			</div>
@@ -87,7 +88,7 @@
 				</div>
 			</div>
 			<div class="row product-lists">
-				@foreach($topSell as $row)
+				@foreach($AlltopSell as $row)
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
