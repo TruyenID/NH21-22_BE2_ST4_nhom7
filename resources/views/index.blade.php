@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach($Allproducts as $row)
+				@foreach($products as $row)
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
@@ -129,6 +129,7 @@
 					</div>
 				</div> -->
 			</div>
+			{{ $products -> links() }}
 		</div>
 	</div>
 	<!-- end product section -->

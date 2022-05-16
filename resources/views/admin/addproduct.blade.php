@@ -1,11 +1,5 @@
 @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -48,18 +42,20 @@
               </div>
               <div class="form-group">
                 <label for="inputStatus">Manufactures</label>
-                <!-- <select id="inputStatus" class="form-control custom-select" name="manu" required>
-                  <option selected disabled></option>
-                </select> -->
-                <input type="text" id="inputName" class="form-control" name="manu" required>
+                <select id="inputStatus" class="form-control custom-select" name="manu" required>
+                  @foreach($manufactures as $row)
+                  <option value="{{$row->manu_id}}" selected >{{$row->manu_name}}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="inputStatus">Prototype</label>
-                <!-- <select id="inputStatus" class="form-control custom-select"  name="type">
-                  <option selected disabled>Select one</option>
-                 
-                </select> -->
-                <input type="text" id="inputName" class="form-control" name="type" required>
+                <select id="inputStatus" class="form-control custom-select"  name="type">
+                  @foreach($protypes as $row)
+                  <option value="{{$row->type_id}}" selected >{{$row->type_name}}</option>
+                  @endforeach
+                </select>
+                <!-- <input type="text" id="inputName" class="form-control" name="type" required> -->
               </div>
               <div class="form-group">
                 <label for="inputClientCompany">Price</label>
@@ -111,4 +107,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>

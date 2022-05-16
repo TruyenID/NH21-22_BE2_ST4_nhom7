@@ -1,11 +1,5 @@
 @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -13,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Manufactures</h1>
+            <h1>User</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-              <li class="breadcrumb-item active">Manufactures</li>
+              <li class="breadcrumb-item active">User</li>
             </ol>
           </div>
         </div>
@@ -31,7 +25,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Manufactures</h3>
+          <h3 class="card-title">Products</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -46,26 +40,28 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 10%">
+                      <th style="width: 1%">
                           ID
                       </th>
-                      <th style="width: 20%"> Name </th>
+                      <th style="width: 20%"> UserName </th>
+                      <th style="width: 15%">Email </th>
+                      <th>PassWord</th>
                   </tr>
               </thead>
               <tbody>
-                  @foreach($manufactures as $row)
+                   @foreach($users as $row)
                   <tr>
-                      <td>{{$row->manu_id}}</td>
-                      <td><a>{{$row->manu_name}}</a><br/></td>
+                    <td>{{$row->id}}</td>
+                      <td>{{$row->name}}</td>
+                      <td>{{$row->email}}</a><br/></td>
+                      <td>{{$row->password}}</td>
                       <td class="project-actions text-right">
-                        <form class="btn btn-info btn-sm" method="POST" action="edit/{{$row->manu_id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
-                         
-                          @csrf
-                          <i class="fas fa-pencil-alt">
+                          <a class="btn btn-info btn-sm" href="admin_edituser/{{$row->id}}">
+                              <i class="fas fa-pencil-alt">
                               </i>
-                          <button type="submit">Edit</button>
-                        </form>
-                          <form class="btn btn-danger btn-sm" method="POST" action="delete/{{$row->manu_id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
+                              Edit
+                          </a>
+                          <form class="btn btn-danger btn-sm" method="POST" action="delete/{{$row->id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
                           @method('DELETE')
                           @csrf
                           <i class="fas fa-trash">
@@ -87,4 +83,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>

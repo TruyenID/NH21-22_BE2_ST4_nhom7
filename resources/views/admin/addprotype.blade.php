@@ -1,4 +1,5 @@
-<?php include "header.php" ?>
+@extends('layout_admin')
+	@section('content-admin')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -20,7 +21,8 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="addtype.php" method="post" enctype="multipart/form-data">
+      <form action="{{url ('saveprotype')}}" method="post" enctype="multipart/form-data">
+      {{ csrf_field() }}
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -35,7 +37,7 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Name</label>
+                <label for="inputName">Type Name</label>
                 <input type="text" id="inputName" class="form-control" name="type_name" required>
               </div>
             </div>
@@ -54,4 +56,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include "footer.html" ?>
+  @endsection

@@ -1,11 +1,5 @@
 @extends('layout_admin')
 	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -106,7 +100,7 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <input name="submit" type="submit" value="Edit" class="btn btn-success float-right">
+          <input name="submit" type="submit" value="Edit Product" class="btn btn-success float-right">
         </div>
       </div>
       </form>
@@ -115,4 +109,3 @@
   </div>
   <!-- /.content-wrapper -->
   @endsection
-</x-app-layout>

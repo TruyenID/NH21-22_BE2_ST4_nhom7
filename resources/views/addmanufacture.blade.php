@@ -1,11 +1,4 @@
-@extends('layout_admin')
-	@section('content-admin')
-    <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<?php include "header.php" ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,8 +20,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="{{url ('savemanufacture') }}" method="post" enctype="multipart/form-data">
-      {{ csrf_field() }}
+      <form action="addmanu.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
@@ -43,7 +35,7 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Manu Name</label>
+                <label for="inputName">Name</label>
                 <input type="text" id="inputName" class="form-control" name="manu_name" required>
               </div>
             </div>
@@ -62,5 +54,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  @endsection
-</x-app-layout>
+<?php include "footer.html" ?>
