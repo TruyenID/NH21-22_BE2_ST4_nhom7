@@ -46,11 +46,12 @@ Route::get('admin_edituser/{id}',[ControllerAdmin::class, 'edit_user']);
 Route::put('update_datuser/{id}',[ControllerAdmin::class, 'update_user']);
 
 //User
+Route::get('shop/{id}',[MyController::class, 'getProtypes'])->name('getprotypes');
+Route::get('shop',[MyController::class, 'show_shop']);
 Route::get('/{name?}', function () {
     Route::get('/{name?}',[MyController::class, 'index']);
 })->middleware(['auth'])->name('index');
 require __DIR__.'/auth.php';
 
-Route::get('/shop',[ControllerAdmin::class, 'getProtype']);
-
 Route::get('/{name?}',[MyController::class, 'index']);
+Route::get('/single-product/{id}/{type_id}', [MyController::class, 'show']);

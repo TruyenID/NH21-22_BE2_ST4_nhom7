@@ -41,7 +41,9 @@
                         <ul>
                             <li class="active" data-filter="*">All</li>
 							@foreach($protypes as $item)
-                            <li data-filter=".strawberry">{{$item->type_name}}</li>
+                            <li data-filter=".strawberry">
+								<a href="{{ route('getprotypes',['id'=>$item->type_id]) }}">{{$item->type_name}}</a>
+							</li>
                             @endforeach
                         </ul>
                     </div>
@@ -59,7 +61,11 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
+<<<<<<< HEAD
+							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
+=======
 							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
+>>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
 						</div>
 						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
@@ -88,7 +94,11 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
+<<<<<<< HEAD
+								<a href="single-product.html"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
+=======
 								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
+>>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
 							</div>
 							<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 							<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
@@ -97,7 +107,14 @@
 					</div>
 					@endforeach
 				</div>
-				{{ $topSell -> links() }}
+				<div class="row" style="float:right">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap">
+					{{ $topSell -> links() }}
+					</div>
+				</div>
+			</div>
+			</div>
 		</div>
 	</div>
 	<!-- end products -->

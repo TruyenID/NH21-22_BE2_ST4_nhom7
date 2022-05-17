@@ -1,4 +1,4 @@
-	@extends('layout')
+@extends('layout')
 	@section('content')
 	<!-- search area -->
 	<div class="search-area">
