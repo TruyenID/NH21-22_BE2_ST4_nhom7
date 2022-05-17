@@ -23,6 +23,10 @@ class MyController extends Controller
         //  = Product::where('manu_id','=',1)->get();
         $products = DB::table('products')->orderBy('id')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        //Tìm kiếm sản phẩm theo key
+        if($key = request()->key){
+            $products = DB::table('products')->orderBy('id')->where('name', 'like','%'.$key.'%')->Paginate(6);
+        }
 
 
         return view($name,compact('protypes','topSell',   
@@ -45,6 +49,7 @@ class MyController extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    //Lấy id sản phẩm và type_id
     public function show($id, $type_id)
     {
         $shop = Product::where('id', '=', $id)->select('*')->first();

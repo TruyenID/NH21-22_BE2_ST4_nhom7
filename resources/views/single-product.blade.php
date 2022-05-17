@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3>{{$shop->name}}</h3>
+						<h2>{{$shop->name}}</h2>
 						<p class="single-product-pricing">{{ number_format($shop->price)}}đ</p>
 						<p>{!! $des !!}</p>
 						<div class="single-product-form">

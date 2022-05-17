@@ -7,11 +7,14 @@
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
 					<div class="search-bar">
-						<div class="search-bar-tablecell">
+						<form action="" class="form-inline">
+							<div class="search-bar-tablecell">
 							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
+							<input name="key" type="text" placeholder="Keywords">
 							<button type="submit">Search <i class="fas fa-search"></i></button>
 						</div>
+						</form>
+						
 					</div>
 				</div>
 			</div>
@@ -129,7 +132,7 @@
 					</div>
 				</div> -->
 			</div>
-			{{ $products -> links() }}
+			{{ $products-> appends(request()-> all()) -> links() }}
 		</div>
 	</div>
 	<!-- end product section -->
