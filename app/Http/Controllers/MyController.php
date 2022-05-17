@@ -83,13 +83,10 @@ class MyController extends Controller
         $protypes = DB::table('protypes')->get();
         $products = DB::table('products')->orderBy('id')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        //Tìm kiếm sp theo key
+        if($key = request()->key){
+            $products = DB::table('products')->orderBy('id')->where('name', 'like','%'.$key.'%')->Paginate(6);
+        }
         return view('/shop',compact('protypes','topSell','products'));
-    }
-    public function show($id, $type_id)
-    {
-        $shop = Product::where('id', '=', $id)->select('*')->first();
-        $products = Product::where('type_id', '=',$type_id)->get();
-        $des = html_entity_decode($shop->description);
-        return view('single-product', compact('shop','products', 'des'));
     }
 }

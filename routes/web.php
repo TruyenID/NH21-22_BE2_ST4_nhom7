@@ -54,4 +54,3 @@ Route::get('/{name?}', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/{name?}',[MyController::class, 'index']);
-Route::get('/single-product/{id}/{type_id}', [MyController::class, 'show']);

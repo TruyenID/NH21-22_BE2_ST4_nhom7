@@ -132,7 +132,7 @@
 					</div>
 				</div> -->
 			</div>
-			{{ $products-> appends(request()-> all()) -> links() }}
+			{{ $products->appends(request()->all()) -> links() }}
 		</div>
 	</div>
 	<!-- end product section -->
