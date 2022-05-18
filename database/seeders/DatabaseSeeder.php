@@ -279,7 +279,7 @@ class DatabaseSeeder extends Seeder
             Pin dự phòng Xiaomi Redmi 20000mAh – Phụ kiện pin sạc an toàn, hiệu suất cao
             Thiết kế nhỏ gọn, hoàn thiện từ nhựa ABS
             Thiết bị sở hữu kích thước tổng thể 154 x 73.6 x 27.3mm, có thể thấy mặc dù không nhỏ gọn như nhiều sản phẩm cao cấp khác, nhưng nó chứa dung lượng pin lên đến 20000mAh.
-            Viên pin dung lượng lớn 20000mAh, sạc hai thiết bị cùng một lúc với công suất tối đa 18W
+            Viên pin dung lượng lớn 20000mAh, sạc hai thiết bị cùng một lúc với công suất tối đa 40W
             Đồng thời, pin sạc này cũng có thể sạc cho nhiều loại điện thoại, máy tính bảng khác nhau, thậm chí là smartwatch.
             Điểm thu hút thứ hai của thiết bị này là đầu vào của pin dự phòng cũng khá ấn tượng khi được trang bị cùng lúc cả hai giao tiếp micro-USB và USB Type-C, tạo điều kiện sạc pin thuận tiện hơn',
             'feature' => 2,
@@ -317,7 +317,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 16,
-            'name' => 'Pin dự phòng Samsung không dây',
+            'name' => 'Pin dự phòng Samsung',
             'manu_id' =>1,
             'type_id' =>5,
             'price' =>790000,
@@ -422,7 +422,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 24,
-            'name' => 'Loa thanh Soundbar Samsung HW T420',
+            'name' => 'Loa thanh Soundbar Samsung',
             'manu_id' =>1,
             'type_id' =>7,
             'price' =>1390000,
@@ -434,7 +434,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 25,
-            'name' => 'Loa bluetooth Samsung Level Box Slim',
+            'name' => 'Loa bluetooth Level Box Slim',
             'manu_id' =>1,
             'type_id' =>7,
             'price' =>990000,
@@ -450,7 +450,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 26,
-            'name' => 'Loa bluetooth Samsung Wireless Scoop',
+            'name' => 'Loa bluetooth Samsung Wireless',
             'manu_id' =>1,
             'type_id' =>7,
             'price' =>690000,
@@ -466,7 +466,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 27,
-            'name' => 'Loa Bluetooth Xiaomi Mi Speaker 2',
+            'name' => 'Loa Bluetooth Xiaomi',
             'manu_id' =>3,
             'type_id' =>7,
             'price' =>869000,
@@ -500,7 +500,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 28,
-            'name' => ' Loa bluetooth kiêm sạc không dây Xiaomi ZMI B508',
+            'name' => ' Loa bluetooth Xiaomi ZMI B508',
             'manu_id' =>3,
             'type_id' =>7,
             'price' =>248000,
@@ -516,7 +516,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 29,
-            'name' => ' Loa bluetooth kiêm sạc không dây Xiaomi ZMI B508',
+            'name' => ' Loa bluetooth Xiaomi ZMI B508',
             'manu_id' =>5,
             'type_id' =>7,
             'price' =>900000,
@@ -541,7 +541,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 31,
-            'name' => ' Loa Bluetooth Samsung Bottle EO-SG710',
+            'name' => ' Loa Bluetooth Samsung Bottle',
             'manu_id' =>1,
             'type_id' =>7,
             'price' =>990000,
@@ -580,7 +580,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 33,
-            'name' => 'Samsung Galaxy Watch 4 LTE 44mm',
+            'name' => 'Samsung Galaxy Watch 4 LTE',
             'manu_id' =>1,
             'type_id' =>4,
             'price' =>6990000,
@@ -604,7 +604,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 34,
-            'name' => 'Apple Watch SE 40mm viền nhôm dây silicone',
+            'name' => 'Apple Watch SE 40mm viền nhôm',
             'manu_id' =>2,
             'type_id' =>4,
             'price' =>7490000,
@@ -628,7 +628,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 35,
-            'name' => 'Đồng hồ thông minh Xiaomi Mi Watch Lite',
+            'name' => 'Đồng hồ Xiaomi Mi Watch Lite',
             'manu_id' =>3,
             'type_id' =>4,
             'price' =>1280000,
@@ -643,7 +643,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 36,
-            'name' => 'Đồng hồ thông minh Xiaomi Mi Watch BHR4550GL',
+            'name' => 'Đồng hồ Xiaomi Mi Watch',
             'manu_id' =>3,
             'type_id' =>4,
             'price' =>2290000,
@@ -658,7 +658,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 37,
-            'name' => 'Đồng hồ thông minh Xiaomi Mi band 4C',
+            'name' => 'Đồng hồ Xiaomi Mi band 4C',
             'manu_id' =>3,
             'type_id' =>4,
             'price' =>450000,
@@ -673,7 +673,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 38,
-            'name' => 'Đồng hồ thông minh Xiaomi Watch Color 2',
+            'name' => 'Đồng hồ thông minh Xiaomi',
             'manu_id' =>3,
             'type_id' =>4,
             'price' =>3500000,
@@ -687,7 +687,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('products')->insert([
             'id' => 39,
-            'name' => 'iPhone 13 Pro Max 128GB | Chính hãng VN/A',
+            'name' => 'iPhone 13 Pro Max 128GB',
             'manu_id' =>2,
             'type_id' =>1,
             'price' =>29690000,
@@ -770,15 +770,15 @@ class DatabaseSeeder extends Seeder
         ]);        
         DB::table('protypes')->insert([
             'type_id' =>5,
-            'type_name' =>'Sạc dự phòng',
+            'type_name' =>'Backup charger',
         ]);  
         DB::table('protypes')->insert([
             'type_id' =>6,
-            'type_name' =>'Tai nghe không dây',
+            'type_name' =>'Wireless headphones',
         ]);  
         DB::table('protypes')->insert([
             'type_id' =>7,
-            'type_name' =>'Loa Bluetooth',
+            'type_name' =>'Bluetooth Speaker',
         ]);    
 
         
