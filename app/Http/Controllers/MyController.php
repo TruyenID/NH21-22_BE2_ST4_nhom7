@@ -8,6 +8,8 @@ use Session;
 use App\Http\Controllers\table;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Product;
+use App\Models\ReviewRating;
+use App\Models\Post;
 session_start();
 
 
@@ -54,8 +56,10 @@ class MyController extends Controller
     {
         $shop = Product::where('id', '=', $id)->select('*')->first();
         $products = Product::where('type_id', '=',$type_id)->get();
+        //lấy đánh giá có post_id trùng với id sản phẩm đang chọn
+        $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $des = html_entity_decode($shop->description);
-        return view('single-product', compact('shop','products', 'des'));
+        return view('single-product', compact('shop','products', 'review_ratings','des'));
     }
     public function AuthLogin(){
         $id = Session::get('id');
@@ -89,4 +93,5 @@ class MyController extends Controller
         }
         return view('/shop',compact('protypes','topSell','products'));
     }
+
 }

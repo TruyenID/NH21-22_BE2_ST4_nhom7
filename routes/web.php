@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ControllerAdmin;
 use App\Http\Controllers\ProductController  ;
@@ -54,3 +55,9 @@ Route::get('/{name?}', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/{name?}',[MyController::class, 'index']);
+
+
+ 
+#Manage Review
+Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
+
