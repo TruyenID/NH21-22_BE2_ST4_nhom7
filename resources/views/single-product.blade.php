@@ -211,7 +211,7 @@
 						<div class="product-image">
 							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img src="{{ asset('assets/img/' . $row->image) }}" alt=""></a>
 						</div>
-						<h3><a href="/single-product/{{$shop->type_id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
+						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price">{{ number_format($row->price)}}đ </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>

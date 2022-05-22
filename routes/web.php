@@ -56,7 +56,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/{name?}',[MyController::class, 'index']);
 
-
  
 #Manage Review
 Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
