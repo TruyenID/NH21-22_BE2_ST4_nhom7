@@ -261,22 +261,6 @@
 				}
 			})
 		}
-		function cartupdate(event){
-			let urlcheckout = $(this).data('url');
-			$.ajax({
-				type:"GET",
-				url : urlcheckout,
-				data : 'json',
-				success: function (data){
-					if(data.code === 200){	
-						
-					}
-				},
-				error: function (data){
-
-				}
-			});
-		}
 		$(function () {
 			$('.add-to-cart').on('click',addTocart);
 		});

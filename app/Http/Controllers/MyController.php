@@ -56,7 +56,7 @@ class MyController extends Controller
     {
         $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $shop = Product::where('id', '=', $id)->select('*')->first();
-        $products = Product::where('type_id', '=',$type_id)->get();
+       
         //lấy đánh giá có post_id trùng với id sản phẩm đang chọn
         $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $des = html_entity_decode($shop->description);
@@ -94,4 +94,58 @@ class MyController extends Controller
         }
         return view('/shop',compact('protypes','topSell','products'));
     }
+    //Add To Cart
+    public function add_cart_ajax($id)
+    {
+        // session()->flush();
+      
+        $cart = session()->get('carts');
+        $products = Product::find($id);
+        if(isset($cart[$id]))
+        {
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+        }else{
+            $cart[$id] = [
+                'name' => $products->name,
+                'price' => $products->price,
+                'quantity' => 1,
+                'image' => $products->image,
+            ];
+        }
+        session()->put('carts',$cart);
+        return response()->json([
+            'code' => 200,
+            'message'=> 'success'
+        ],200);
+       
+    }
+    //Show Cart
+    public function show_cart()
+    {
+        $cart = session()->get('carts');
+        // print_r($cart);
+        return view('/cart')->with('cart');
+    }
+    public function update_cart(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $cart = session()->get('carts');
+            $cart[$request->id]['quantity'] = $request->quantity;
+            session()->put('carts',$cart);
+            $cart = session()->get('carts');
+            $cartView = view('cart')->with('cart')->render();
+            return response()->json(['carts'=> $cartView,code=>200],200);
+        }
+    } public function delete_cart(Request $request)
+    {
+        if($request->id){
+            $cart = session()->get('carts');
+            unset($cart[$request->id]);
+            session()->put('carts',$cart);
+            $cart = session()->get('carts');
+            $cartView = view('/cart')->with('cart')->render();
+            return response()->json(['carts'=> $cartView,code=>200],200);
+        }
+    }
+
 }
