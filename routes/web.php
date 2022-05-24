@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ControllerAdmin;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,3 +86,9 @@ Route::get('/cart/delete',[MyController::class, 'delete_cart'])->name('deletecar
 Route::get('/{name?}',[MyController::class, 'index']);
 #Manage Review
 Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
+Route::get('/{name?}',[MyController::class, 'index']);
+
+ 
+#Manage Review
+Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
+

@@ -7,15 +7,15 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<form action="">
-						<div class="search-bar">
+					<div class="search-bar">
+						<form action="" class="form-inline">
 							<div class="search-bar-tablecell">
-								<h3>Search For:</h3>
-								<input name="key" type="text" placeholder="Keywords">
-								<button type="submit">Search <i class="fas fa-search"></i></button>
-							</div>
+							<h3>Search For:</h3>
+							<input name="key" type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
 						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'. $row->image) }}" alt=""></a>
+							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
 						</div>
 						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
@@ -76,13 +76,7 @@
 				</div>
 				@endforeach
 			</div>
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-					{{ $products-> appends(request()->all()) -> links() }}
-					</div>
-				</div>
-			</div>
+			{{ $products-> appends(request()->all()) -> links() }}
 			
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -96,7 +90,7 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
-								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'. $row->image) }}" alt=""></a>
+								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
 							</div>
 							<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 							<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>

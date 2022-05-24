@@ -1,5 +1,6 @@
 @extends('layout')
 	@section('content')
+	<!-- search area -->
 	<style>
 		.row:after {
          content: "";
@@ -55,6 +56,9 @@
          color: #000;
          }
 	</style>
+	
+	<!-- end search arewa -->
+	
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -81,8 +85,8 @@
 				</div>
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3 style="color:#F28123">{{$shop->name}}</h3>
-						<p style="color:#051922" class="single-product-pricing">{{ number_format($shop->price)}}VND</p>
+						<h2>{{$shop->name}}</h2>
+						<p class="single-product-pricing">{{ number_format($shop->price)}}VND</p>
 						<p>{!! $des !!}</p>
 						<div class="single-product-form">		
 							<h5>Quantity</h5>
@@ -184,6 +188,91 @@
                   </div>
                </div>
 			</div>
+			<!-- Display review section start -->
+               <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                  <div>
+                     <div class="row mt-5">
+                        <h4>Comment Section :</h4>
+                        <div class="col-sm-12 mt-5">
+                           @foreach($review_ratings as $review)
+                           <div class=" review-content">
+                              <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar ">
+                              <span class="font-weight-bold ml-2">{{$review->name}}</span>
+                              <p class="mt-1">
+                                 @for($i=1; $i<=$review->star_rating; $i++) 
+                                 <span><i class="fa fa-star text-warning"></i></span>
+                                 @endfor
+                                 <span class="font ml-2">{{$review->email}}</span>
+                              </p>
+                              <p class="description ">
+                                 {{$review->comments}}
+                              </p>
+                           </div>
+                           <hr>
+                           @endforeach
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Review store Section -->
+               <div class="container">
+                  <div class="row">
+                     <div class="col-sm-10 mt-4 ">
+                        <form class="py-2 px-4" action="{{route('review.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                           @csrf
+                           <input type="hidden" name="post_id" value="{{$shop->id}}">
+                           <div class="row justify-content-end mb-1">
+                              <div class="col-sm-8 float-right">
+                                 @if(Session::has('flash_msg_success'))
+                                 <div class="alert alert-success alert-dismissible p-2">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Success!</strong> {!! session('flash_msg_success')!!}.
+                                 </div>
+                                 @endif
+                              </div>
+                           </div>
+                           <p class="font-weight-bold ">Review</p>
+                           <div class="form-group row">
+                              <div class=" col-sm-6">
+                                 <input class="form-control" type="text" name="name" placeholder="Name" maxlength="40" required/>
+                              </div>
+                              <div class="col-sm-6">
+                                 <input class="form-control" type="email" name="email" placeholder="Email" maxlength="80" required/>
+                              </div>
+                           </div>
+                           <div class="form-group row">
+                              <div class="col-sm-6">
+                                 <input class="form-control" type="text" name="phone" placeholder="Phone" maxlength="40" required/>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="rate">
+                                    <input type="radio" id="star5" class="rate" name="rating" value="5"/>
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" checked id="star4" class="rate" name="rating" value="4"/>
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" class="rate" name="rating" value="3"/>
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" class="rate" name="rating" value="2">
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" class="rate" name="rating" value="1"/>
+                                    <label for="star1" title="text">1 star</label>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="form-group row mt-4">
+                              <div class="col-sm-12 ">
+                                 <textarea class="form-control" name="comment" rows="6 " placeholder="Comment" maxlength="200"></textarea>
+                              </div>
+                           </div>
+                           <div class="mt-3 ">
+                              <button class="btn btn-sm py-2 px-3 btn-info">Submit
+                              </button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+         </div>
 		</div>
 	</div>
 	<!-- end single product -->
@@ -203,9 +292,9 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="{{ asset('assets/img/' . $row->image) }}" alt=""></a>
+							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img src="{{ asset('assets/img/' . $row->image) }}" alt=""></a>
 						</div>
-						<h3><a href="/single-product/{{$shop->type_id}}"> {{ $row->name }} </a></h3>
+						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price">{{ number_format($row->price)}}đ </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>

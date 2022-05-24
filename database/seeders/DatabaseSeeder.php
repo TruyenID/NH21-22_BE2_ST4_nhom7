@@ -474,16 +474,27 @@ class DatabaseSeeder extends Seeder
             'description' =>  '      
             - Mi Speaker sở hữu thiết kế gọn gàng bắt mắt với lớp vỏ nhôm, thay vì vật liệu nhựa ABS như trên Square Box
             THÔNG SỐ KĨ THUẬT:
+
                 Kích thước: 168 x 24.5 x 58 mm
+
                 Trọng lượng: 270g
+
                 Số kênh: 2(2.0)
+
                 Kiểu loa: Subwoofer
+
                 Công suất: 3W x 2
+
                 Chuẩn Bluetooth: 4.0
+
                 Kiểu Bluetooth hỗ trợ: A2DP\AVRCP
+
                 Khoảng cách kết nối: 10 mét
+
                 Thẻ nhớ: microSD, tối đa 32GB
+
                 Dung lượng pin: 1500mAh
+
                 Thời gian sử dụng: 8h (sạc đầy 2,5h)',
             'feature' => 2,
         ]);
@@ -553,12 +564,16 @@ class DatabaseSeeder extends Seeder
             'description' =>  '      
             Màn hình:
             SUPER AMOLED1.19 inch
+
             Thời lượng pin:
             Khoảng 1.5 ngày
+
             Kết nối với hệ điều hành:
             Android dùng Google Mobile Service
+
             Mặt:
             Kính cường lực Gorrilla Glass Dx+40 mm
+
             Tính năng cho sức khỏe:
             Theo dõi giấc ngủTính lượng calories tiêu thụĐiện tâm đồĐo huyết ápĐo nhịp timĐo nồng độ oxy (SpO2)Đếm số bước chân',
             'feature' => 2,
@@ -573,12 +588,16 @@ class DatabaseSeeder extends Seeder
             'description' =>  '      
             Màn hình:
             SUPER AMOLED1.36 inch
+
             Thời lượng pin:
             Khoảng 1.5 ngày
+
             Kết nối với hệ điều hành:
             Android dùng Google Mobile Service
+
             Mặt:
             Kính cường lực Gorrilla Glass Dx+44 mm
+
             Tính năng cho sức khỏe:
             Theo dõi giấc ngủĐiện tâm đồĐo huyết ápĐo nhịp timĐo nồng độ oxy (SpO2)Đếm số bước chân',
             'feature' => 2,
@@ -593,12 +612,16 @@ class DatabaseSeeder extends Seeder
             'description' =>  '      
             Màn hình:
             OLED1.57 inch
+
             Thời lượng pin:
             Khoảng 1.5 ngày
+
             Kết nối với hệ điều hành:
             iOS bản mới nhất
+
             Mặt:
             Ion-X strengthened glass40 mm
+
             Tính năng cho sức khỏe:
             Chế độ luyện tậpTheo dõi giấc ngủTính lượng calories tiêu thụTính quãng đường chạyĐo nhịp timĐếm số bước chân',
             'feature' => 2,
