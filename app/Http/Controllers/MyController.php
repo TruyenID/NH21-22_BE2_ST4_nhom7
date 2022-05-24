@@ -17,6 +17,7 @@ class MyController extends Controller
 {
     //Hiển Thị Tất Cả Sản Phẩm , Sản Phẩm Bán chạy
     function index($name = 'index'){
+       
         $carts = session()->get('carts');
         $users = DB::table('users')->get();
         $manufactures = DB::table('manufactures')->get();
@@ -136,7 +137,8 @@ class MyController extends Controller
             $cartView = view('cart')->with('cart')->render();
             return response()->json(['carts'=> $cartView,code=>200],200);
         }
-    } public function delete_cart(Request $request)
+    } 
+    public function delete_cart(Request $request)
     {
         if($request->id){
             $cart = session()->get('carts');
@@ -148,4 +150,15 @@ class MyController extends Controller
         }
     }
 
+    public function save_placeOrder(Request $request)
+    {
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['address'] = $request->address;
+        $data['phone'] = $request->tel;
+        $data['saysomething'] = $request->bill;
+        DB::table('billings')->insert($data);
+        return Redirect::to('checkout');
+    }
 }

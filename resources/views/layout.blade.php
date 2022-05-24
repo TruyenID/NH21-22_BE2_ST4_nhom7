@@ -271,7 +271,7 @@
 			$(document).on('click','.cart_delete',cartdelete);
 		})
 		$(function (){
-			$(document).on('click','.check_out',checkout);
+			$(document).on('click','.place_order',PlaceOrder);
 		})
 	</script>
 </body>

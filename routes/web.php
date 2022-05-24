@@ -38,6 +38,8 @@ Route::get('/admin.addmanufacture',[ControllerAdmin::class, 'show_admin_addmanuf
 Route::get('/admin.addprotype',[ControllerAdmin::class, 'show_admin_addprotype']);
 //Hiển thị giao diện chính 
 Route::post('/admin.dashboard',[ControllerAdmin::class, 'dashboard']);
+//Hiển thị giao diện Đơn hàng 
+Route::get('/admin.admin_billings',[ControllerAdmin::class, 'show_admin_billing']);
 // Logout trang admin
 Route::get('/logout',[ControllerAdmin::class, 'logout']);
 
@@ -47,6 +49,7 @@ Route::post('/saveprotype',[ControllerAdmin::class, 'save_protype']);
 Route::post('/saveuser',[ControllerAdmin::class, 'save_user']);
 Route::post('/saveadmin',[ControllerAdmin::class, 'save_admin']);
 
+Route::DELETE('deletebilling/{id}',[ControllerAdmin::class, 'destroy_billing']);
 Route::DELETE('deleteadmin/{id}',[ControllerAdmin::class, 'destroy_admin']);
 Route::DELETE('deleteuser/{id}',[ControllerAdmin::class, 'destroy_user']);
 Route::DELETE('deleteproduct/{id}',[ProductController::class, 'destroy']);
@@ -83,11 +86,10 @@ Route::get('/cart',[MyController::class, 'show_cart'])->name('showcart');
 Route::get('/cart/update',[MyController::class, 'update_cart'])->name('updatecart');
 //Delete Cart
 Route::get('/cart/delete',[MyController::class, 'delete_cart'])->name('deletecart');
-Route::get('/{name?}',[MyController::class, 'index']);
-#Manage Review
-Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
-Route::get('/{name?}',[MyController::class, 'index']);
 
+Route::get('/{name?}',[MyController::class, 'index']);
+// Place Order
+Route::post('/saveplace',[MyController::class, 'save_placeOrder']);
  
 #Manage Review
 Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');

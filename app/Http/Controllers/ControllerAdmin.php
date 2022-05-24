@@ -151,6 +151,12 @@ class ControllerAdmin extends Controller
         DB::table('users')->where('id',$id)->delete();
         return Redirect::to('admin.admin_users');
     }
+    public function destroy_billing($id)
+    {
+        $this->AuthLogin();
+        DB::table('billings')->where('id',$id)->delete();
+        return Redirect::to('admin.admin_billings');
+    }
     //Xóa Hãng Sản phẩm
     public function destroy_manu($manu_id)
     {
@@ -180,6 +186,23 @@ class ControllerAdmin extends Controller
         }else{
             return Redirect::to('admin.login_admin')->send();
         }
+    }
+      // Hiện Thị Billing
+      public function show_admin_billing(){
+        $this->AuthLogin();
+        
+        $billings = DB::table('billings')->get();
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        return view('admin.admin_billings',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users','billings'))
+       ;
     }
     // Hiện Thị Trang chủ Admin
     public function show_dashboard(){
@@ -313,6 +336,7 @@ class ControllerAdmin extends Controller
     public function show_admin_product(){
         $this->AuthLogin();
 
+       
         $users = DB::table('users')->get();
         $manufactures = DB::table('manufactures')->get();
         $protypes = DB::table('protypes')->get();
@@ -346,8 +370,7 @@ class ControllerAdmin extends Controller
     // Hiển thị protype
     public function show_admin_protype(){
         $this->AuthLogin();
-
-         $users = DB::table('users')->get();
+        $users = DB::table('users')->get();
         $manufactures = DB::table('manufactures')->get();
         $protypes = DB::table('protypes')->get();
         $Allproducts = DB::table('products')->get();

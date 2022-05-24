@@ -53,12 +53,14 @@
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 						      <div class="card-body">
 						        <div class="billing-address-form">
-						        	<form action="index.html">
-						        		<p><input type="text" placeholder="Name"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Address"></p>
-						        		<p><input type="tel" placeholder="Phone"></p>
+						        	<form action="{{url ('saveplace') }}" method="post" enctype="multipart/form-data">
+      									{{ csrf_field() }}
+						        		<p><input type="text" name="name" placeholder="Name"></p>
+						        		<p><input type="email" name="email" placeholder="Email"></p>
+						        		<p><input type="text" name="address" placeholder="Address"></p>
+						        		<p><input type="tel" name="tel" placeholder="Phone"></p>
 						        		<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea></p>
+										<input type="submit" value="Place Order"  class="boxed-btn place_order" onsubmit="alert('Bạn Có Muốn Xóa Không?')">
 						        	</form>
 						        </div>
 						      </div>
@@ -135,7 +137,6 @@
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Place Order</a>
 					</div>
 				</div>
 			</div>
