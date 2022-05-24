@@ -41,7 +41,7 @@
             </div>
             <div class="flex items-center justify-end mt-4">
                 <p style="margin-right:15px">If not have account</p>
-                <a href="{{url('register')}}" style="background:#1f2937;color:#f8f8df;border-radius:8px;padding:6px 12px 6px 12px">Register</a>
+                <a href="{{url('auth.register')}}" style="background:#1f2937;color:#f8f8df;border-radius:8px;padding:6px 12px 6px 12px">Register</a>
             </div>
             <div class="items-center justify-end mt-4">
                 <a href="{{url('admin.login_admin')}}" style="background:#1f2937;color:#f8f8df;border-radius:8px;padding:6px 12px 6px 12px">Login Auth</a>

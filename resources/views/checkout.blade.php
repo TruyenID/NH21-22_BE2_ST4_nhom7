@@ -115,31 +115,23 @@
 									<td>Product</td>
 									<td>Total</td>
 								</tr>
+								@php
+									$total = 0;
+								@endphp
+								@if(Auth::check())
+								@foreach($carts as $id=>$row)
+								@php
+									$total += $row['price'] * $row['quantity'];
+								@endphp
 								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
+									<td>{{ $row['name'] }}</td>
+									<td>{{  number_format($row['price'] * $row['quantity']) }} VND</td>
 								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
-								</tr>
-							</tbody>
-							<tbody class="checkout-details">
-								<tr>
-									<td>Subtotal</td>
-									<td>$190</td>
-								</tr>
-								<tr>
-									<td>Shipping</td>
-									<td>$50</td>
-								</tr>
+								@endforeach
+								@endif
 								<tr>
 									<td>Total</td>
-									<td>$240</td>
+									<td>{{number_format($total)}} VND</td>
 								</tr>
 							</tbody>
 						</table>

@@ -11,7 +11,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{url('index')}}">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,11 +33,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-<<<<<<< HEAD:resources/views/dashboard.blade.php
-              <a href="{{url ('admin_products')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-=======
               <a href="{{url ('admin.admin_products')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
->>>>>>> a6d976a7cf5a9d46228198b5decebe41744c24b5:resources/views/admin/dashboard.blade.php
             </div>
           </div>
           <!-- ./col -->

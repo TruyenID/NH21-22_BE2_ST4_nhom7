@@ -29,7 +29,8 @@
 	<link rel="stylesheet" href="{{ url ('assets/css/main.css') }}">
 	<!-- responsive -->
 	<link rel="stylesheet" href="{{ url ('assets/css/responsive.css') }}">
-
+	<!-- sweetalert.css -->
+	<link rel="stylesheet" href="{{ url ('assets/css/sweetalert.css') }}">
 </head>
 <body>
 	
@@ -69,14 +70,7 @@
 										<li><a href="{{url ('cart')}}">Cart</a></li>
 										<li><a href="{{url ('checkout')}}">Check Out</a></li>
 										<li><a href="{{url ('contact')}}">Contact</a></li>
-										<li><a href="{{url ('news')}}">News</a></li>
 										<li><a href="{{url ('shop')}}">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="{{url ('news')}}">News</a>
-									<ul class="sub-menu">
-										<li><a href="{{url ('news')}}">News</a></li>
-										<li><a href="{{url ('single-news')}}">Single News</a></li>
 									</ul>
 								</li>
 								<li><a href="{{url ('contact')}}">Contact</a></li>
@@ -84,7 +78,6 @@
 									<ul class="sub-menu">
 										<li><a href="{{url ('shop')}}">Shop</a></li>
 										<li><a href="{{url ('checkout')}}">Check Out</a></li>
-										<li><a href="{{url ('single-product')}}">Single Product</a></li>
 										<li><a href="{{url ('cart')}}">Cart</a></li>
 									</ul>
 								</li>
@@ -95,17 +88,17 @@
 										<a href="{{url ('auth.login') }}"><i class="fa fa-user"></i></a>
 										@if(Auth::check())
 										<div class="dropdown">
-  											<button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
+  											<button style="border-radius:10px" onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
   											<div id="myDropdown" class="dropdown-content">
 											  <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+										@csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+										<x-dropdown-link :href="route('logout')"
+												onclick="event.preventDefault();
+															this.closest('form').submit();">
+											{{ __('Log Out') }}
+										</x-dropdown-link>
+									</form>
 											</div>
 										</div>
 										@endif
@@ -152,7 +145,6 @@
 							<li><a href="{{url ('index')}}">Home</a></li>
 							<li><a href="{{url ('about')}}">About</a></li>
 							<li><a href="{{url ('shop')}}">Shop</a></li>
-							<li><a href="{{url ('news')}}">News</a></li>
 							<li><a href="{{url ('contact')}}">Contact</a></li>
 						</ul>
 					</div>
@@ -195,6 +187,8 @@
 	</div>
 	<!-- end copyright -->
 	
+	<!-- sweetalert.js -->
+	<script src="{{ url ('assets/js/sweetalert.js') }}"></script>
 	<!-- jquery -->
 	<script src="{{ url ('assets/js/jquery-1.11.3.min.js') }}"></script>
 	<!-- bootstrap -->
@@ -215,5 +209,86 @@
 	<script src="{{ url ('assets/js/sticker.js') }}"></script>
 	<!-- main js -->
 	<script src="{{ url ('assets/js/main.js') }}"></script>
+	<script type="text/javascript">
+		function addTocart(event){
+			let urlcart = $(this).data('url');
+			$.ajax({
+				type:"GET",
+				url : urlcart,
+				data : 'json',
+				success: function (data){
+					if(data.code === 200){	
+						
+					}
+				},
+				error: function (data){
+
+				}
+			});
+		}
+		function cartupdate(event){
+			let urlupdateCart = $('.update_cart_url').data('url');
+			let id = $(this).data('id');
+			let quantity = $(this).parents('tr.table-body-row').find('input').val();
+			// alert(quantity);
+			$.ajax({
+				type: "GET",
+				url: urlupdateCart,
+				data : {id: id, quantity: quantity},
+				success: function (data){	
+					if(data.code === 200){
+						$('.cart-section').html(data.cart);
+						alert('Update Cart successful') 
+					}
+				},
+				error: function (data){
+				}
+			})
+		}
+		function cartdelete(event){
+			let urldeleteCart = $('.delete_cart_url').data('url');
+			$.ajax({
+				type: "GET",
+				url: urldeleteCart,
+				data : {id: id},
+				success: function (data){	
+					if(data.code === 200){
+						$('.cart-section').html(data.cart);
+						alert('Delete Cart successful') 
+					}
+				},
+				error: function (data){
+				}
+			})
+		}
+		function cartupdate(event){
+			let urlcheckout = $(this).data('url');
+			$.ajax({
+				type:"GET",
+				url : urlcheckout,
+				data : 'json',
+				success: function (data){
+					if(data.code === 200){	
+						
+					}
+				},
+				error: function (data){
+
+				}
+			});
+		}
+		$(function () {
+			$('.add-to-cart').on('click',addTocart);
+		});
+		$(function (){
+			$(document).on('click','.cart_update',cartupdate);
+		}) 
+		$(function (){
+			$(document).on('click','.cart_delete',cartdelete);
+		})
+		$(function (){
+			$(document).on('click','.check_out',checkout);
+		})
+	</script>
 </body>
 </html>

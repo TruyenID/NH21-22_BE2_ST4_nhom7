@@ -61,7 +61,7 @@
                               </i>
                               Edit
                           </a>
-                          <form class="btn btn-danger btn-sm" method="POST" action="delete/{{$row->id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
+                          <form class="btn btn-danger btn-sm" method="POST" action="deleteuser/{{$row->id}}" onsubmit="return confirm('Bạn Có Muốn Xóa Không?')">
                           @method('DELETE')
                           @csrf
                           <i class="fas fa-trash">

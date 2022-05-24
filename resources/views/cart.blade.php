@@ -40,8 +40,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-12">
-					<div class="cart-table-wrap">
-						<table class="cart-table">
+					<div class="cart-table-wrap delete_cart_url"  data-url="{{route('deletecart')}}">
+						<table class="cart-table update_cart_url" data-url="{{route('updatecart')}}">
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
 									<th class="product-remove"></th>
@@ -50,33 +50,29 @@
 									<th class="product-price">Price</th>
 									<th class="product-quantity">Quantity</th>
 									<th class="product-total">Total</th>
+									<th class="product-total">Action</th>
 								</tr>
 							</thead>
+							@php
+							$total = 0;
+							@endphp
 							<tbody>
+							@if(Auth::check())
+								@foreach($carts as $id=>$row)
+									@php
+									$total += $row['price'] * $row['quantity'];
+									@endphp
 								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
+									<td class="product-remove"><a href="{{url('cart')}}"  data-id="{{$id}}" class="cart_delete"><i class="far fa-window-close"></i></a></td>
+									<td class="product-image"><img src="assets/img/{{$row['image']}} " alt=""></td>
+									<td class="product-name">{{ $row['name'] }}</td>
+									<td class="product-price">{{  number_format($row['price']) }} VND</td>
+									<td class="product-quantity"><input type="number" value="{{$row['quantity']}}"></td>
+									<td class="product-total">{{  number_format($row['price'] * $row['quantity']) }} VND</td>
+									<td><a href="{{url('cart')}}" data-id="{{$id}}" class="boxed-btn cart_update">Update Cart</a></td>
 								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
+								@endforeach
+							@endif
 							</tbody>
 						</table>
 					</div>
@@ -94,21 +90,20 @@
 							<tbody>
 								<tr class="total-data">
 									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
+									<td>0 VND</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Shipping: </strong></td>
-									<td>$45</td>
+									<td>0 VND</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td>$545</td>
+									<td>{{number_format($total)}} VND</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							<a href="checkout.html" class="boxed-btn black">Check Out</a>
+							<a href="{{url ('checkout')}}" class="boxed-btn black">Check Out</a>
 						</div>
 					</div>
 

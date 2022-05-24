@@ -68,7 +68,7 @@ class ProductController extends Controller
         $manufactures = DB::table('manufactures')->get();
         $protypes = DB::table('protypes')->get();
         $products =  Product::find($id);
-        return view('admin_editproduct',compact('products','manufactures','protypes'));
+        return view('admin.admin_editproduct',compact('products','manufactures','protypes'));
     }
 
     /**
@@ -103,11 +103,11 @@ class ProductController extends Controller
             $get_image->move('../public/assets/img',$new_imgae);
             $data['image'] = $new_imgae;
             DB::table('products')->where('id',$id)->update($data);
-            return Redirect::to('admin_products');    
+            return Redirect::to('admin.admin_products');    
         }
         $data['image'] = '';
         DB::table('products')->where('id',$id)->update($data);
-        return Redirect::to('admin_products');
+        return Redirect::to('admin.admin_products');
     }
 
     /**
@@ -120,6 +120,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         DB::table('products')->delete($id);
-        return Redirect::to('admin_products');
+        return Redirect::to('admin.admin_products');
     }
 }

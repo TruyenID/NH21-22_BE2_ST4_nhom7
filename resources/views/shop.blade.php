@@ -4,16 +4,22 @@
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
-			<form action="" class="form-inline" >
-				<div class="form-group">
-					<input type="form-control" name="key" placeholder="Search by name...">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<form action="">
+						<div class="search-bar">
+							<div class="search-bar-tablecell">
+								<h3>Search For:</h3>
+								<input name="key" type="text" placeholder="Keywords">
+								<button type="submit">Search <i class="fas fa-search"></i></button>
+							</div>
+						</div>
+					</form>
 				</div>
-				<button type="submit" class="btn btn-primary">
-					<i class="fas fa-search"></i>
-				</button>
-			</form>
+			</div>
 		</div>
-	</div>
+	</div>	
 	<!-- end search arewa -->
 	
 	<!-- breadcrumb-section -->
@@ -61,15 +67,11 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-<<<<<<< HEAD
-							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
-=======
-							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
->>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
+							<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'. $row->image) }}" alt=""></a>
 						</div>
 						<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 						<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{route('showcart')}}" data-url="{{ route('addToCart',['id'=>$row->id]) }}" class="cart-btn add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
 				@endforeach
@@ -77,7 +79,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="pagination-wrap">
-						{{ $products->links() }}
+					{{ $products-> appends(request()->all()) -> links() }}
 					</div>
 				</div>
 			</div>
@@ -94,15 +96,11 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
-<<<<<<< HEAD
-								<a href="single-product.html"><img class="img-fluid" src="{{ asset('assets/img/'.$row->image) }}" alt=""></a>
-=======
-								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="assets/img//{{$row->image}}" alt=""></a>
->>>>>>> 5f280840fe0f261d21c4598915f99a11ca2b4703
+								<a href="/single-product/{{$row->id}}/{{$row->type_id}}"><img class="img-fluid" src="{{ asset('assets/img/'. $row->image) }}" alt=""></a>
 							</div>
 							<h3><a href="/single-product/{{$row->id}}/{{$row->type_id}}"> {{ $row->name }} </a></h3>
 							<p class="product-price"><span></span>{{ number_format($row->price)}}đ</p>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							<a href="{{route('showcart')}}" data-url="{{ route('addToCart',['id'=>$row->id]) }}" class="cart-btn add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 						</div>
 					</div>
 					@endforeach

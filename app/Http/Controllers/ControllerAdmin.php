@@ -21,38 +21,12 @@ class ControllerAdmin extends Controller
 
     //Thêm Sản Phẩm Admin
 
-    public function save_product(Request $request){
+    public function save_product(Request $request){ 
         $data = array();
         $data['name'] = $request->name;
         $data['manu_id'] = $request->manu;
         $data['type_id'] = $request->type;
         $data['price'] = $request->price;
-
-        $data['image'] = $request->file('image')->store('', 'local');
-        $data['description'] = $request->des;
-        $data['feature'] = $request->feature;
-        $target_dir ="../img/";
-        $target_file = $target_dir . basename($request->file('image')->store('', 'local'));
-        move_uploaded_file($request->file('image')->store('', 'local'), $target_file);
-        DB::table('products')->insert($data);
-
-        return Redirect::to('admin_products');
-    }
-    public function delete_product(){
-
-    }
-    public function getManu(){
-        $manufactures = DB::table('manufactures')->get();
-        return view('shop',['getAllManu'=> $manufactures]);
-        
-    }
-    public function getProtype(){
-        $protypes = DB::table('protypes','products')->get();
-        $products = DB::table('products')->get();
-        $topSell = Product::where('feature','=',1)->get();
-        // return view('shop',['getAllprotype'=> $protypes],['data'=>$products],['topSelling'=>$topSell]);
-        return view('shop',compact('protypes','products','topSell'));
-        
 
         $data['description'] = $request->des;
         $data['feature'] = $request->feature;
@@ -70,6 +44,18 @@ class ControllerAdmin extends Controller
         $data['image'] = '';
         DB::table('products')->insert($data);
         return Redirect::to('admin.admin_products');
+    }
+    public function getManu(){
+        $manufactures = DB::table('manufactures')->get();
+        return view('shop',['getAllManu'=> $manufactures]);
+        
+    }
+    public function getProtype(){
+        $protypes = DB::table('protypes','products')->get();
+        $products = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        // return view('shop',['getAllprotype'=> $protypes],['data'=>$products],['topSelling'=>$topSell]);
+        return view('shop',compact('protypes','products','topSell'));
     }
     //Thêm Hãng Sản Xuất 
     public function save_manufacture(Request $request){
@@ -92,9 +78,9 @@ class ControllerAdmin extends Controller
         $data = array();
         $data['name'] = $request->username;
         $data['email'] = $request->email;
-        $data['password'] = $request->password;
+        $data['password'] = md5($request->password);
         DB::table('users')->insert($data);
-        return Redirect::to('admin.admin_user');
+        return Redirect::to('admin.admin_users');
     }
     //Chỉnh Sửa Hãng Sản Phẩm
     public function edit_manufacture($manu_id)
@@ -105,7 +91,7 @@ class ControllerAdmin extends Controller
         return view('admin.admin_editmanufacture',compact('manufactures','protypes'));
     }
     //Cập nhật Hãng Sản Phẩm
-    public function update_manufacture(Request $request, $type_id)
+    public function update_manufacture(Request $request, $manu_id)
     {
         $this->AuthLogin();
         $data = array();
@@ -158,6 +144,13 @@ class ControllerAdmin extends Controller
         $users =  DB::table('users')->where('id',$id)->get();
         return view('admin.admin_edituser',compact('users','manufactures'));
     }
+    //Xóa User
+    public function destroy_user($id)
+    {
+        $this->AuthLogin();
+        DB::table('users')->where('id',$id)->delete();
+        return Redirect::to('admin.admin_users');
+    }
     //Xóa Hãng Sản phẩm
     public function destroy_manu($manu_id)
     {
@@ -172,6 +165,14 @@ class ControllerAdmin extends Controller
         DB::table('protypes')->where('type_id',$type_id)->delete();
         return Redirect::to('admin.admin_protypes');
     }
+    //Xóa Admin
+    public function destroy_admin($id)
+    {
+        $this->AuthLogin();
+        DB::table('admins')->where('id',$id)->delete();
+        return Redirect::to('admin.admin');
+    }
+    // Chặn Admin
     public function AuthLogin(){
         $id = Session::get('id');
         if($id){
@@ -180,10 +181,12 @@ class ControllerAdmin extends Controller
             return Redirect::to('admin.login_admin')->send();
         }
     }
+    // Hiện Thị Trang chủ Admin
     public function show_dashboard(){
         $this->AuthLogin();
         return view('admin.dashboard');
     }
+    // Hiển thị thêm user
     public function show_admin_adduser(){
         $this->AuthLogin();
         $users = DB::table('users')->get();
@@ -199,6 +202,32 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    //Hiển Thị Thêm Admin
+    public function show_admin_addadmin(){
+        $this->AuthLogin();
+        $admins = DB::table('admins')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.adduser',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','admins'))
+       ;
+    }
+    //Lưu thêm Admin
+    public function save_admin(Request $request){
+        $data = array();
+        $data['name'] = $request->username;
+        $data['email'] = $request->email;
+        $data['password'] = md5($request->password);
+        DB::table('admins')->insert($data);
+        return Redirect::to('admin.admin');
+    }
+    /// Hiển thị thêm sản phẩm
     public function show_admin_addproduct(){
         $this->AuthLogin();
         $users = DB::table('users')->get();
@@ -214,6 +243,7 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    // Hiển thị thêm Loại Sản Phẩm
     public function show_admin_addprotype(){
         $this->AuthLogin(); 
         $users = DB::table('users')->get();
@@ -229,6 +259,7 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    // Hiển Thị Hãng Sản Phẩm
     public function show_admin_addmanufacture(){
         $this->AuthLogin();
         $users = DB::table('users')->get();
@@ -244,6 +275,7 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    //Hiển thị User
     public function show_admin_user(){
         $this->AuthLogin();
 
@@ -260,6 +292,24 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    // Hiển Thị Admin
+    public function show_admin(){
+        $this->AuthLogin();
+
+        $admins = DB::table('admins')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+
+        return view('admin.admins',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','admins'))
+       ;
+    }
+    // Hiển Thị Product
     public function show_admin_product(){
         $this->AuthLogin();
 
@@ -276,6 +326,7 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    //Hiển Thị manufacture
     public function show_admin_manufacture(){
         $this->AuthLogin();
 
@@ -292,6 +343,7 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    // Hiển thị protype
     public function show_admin_protype(){
         $this->AuthLogin();
 
@@ -308,11 +360,12 @@ class ControllerAdmin extends Controller
         'products','protypes','manufactures','Allproducts','users'))
        ;
     }
+    //Login 
     public function dashboard(Request $request){
         $email = $request->admin_email;
         $password = md5($request->admin_password);
 
-        $result = DB::table('admin')->where('email',$email)->where('password',$password)->first();
+        $result = DB::table('admins')->where('email',$email)->where('password',$password)->first();
         if($result){
             Session::put('name',$result->name);
             Session::put('id',$result->id);
@@ -324,6 +377,7 @@ class ControllerAdmin extends Controller
         }
 
     }
+    //Logout
     public function logout(){
         $this->AuthLogin();
         Session::put('name',null);

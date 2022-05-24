@@ -38,7 +38,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.php" class="nav-link">Home</a>
+        <a href="{{url ('dashboard')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -141,7 +141,6 @@
                 </a>
               </li>
               <li class="nav-item">
-
                 <a href="{{url ('admin.admin_users')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
@@ -151,6 +150,19 @@
                 <a href="{{url ('admin.adduser')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add User</p>
+                </a>
+              </li>
+              </li>
+              <li class="nav-item">
+                <a href="{{url ('admin.admin')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url ('admin.addadmin')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Admin</p>
                 </a>
               </li>
               <li class="nav-item">
