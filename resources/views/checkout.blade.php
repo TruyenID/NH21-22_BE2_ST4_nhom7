@@ -52,6 +52,7 @@
 
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 						      <div class="card-body">
+							  	@if(Auth::check())
 						        <div class="billing-address-form">
 						        	<form action="{{url ('saveplace') }}" method="post" enctype="multipart/form-data">
       									{{ csrf_field() }}
@@ -63,6 +64,7 @@
 										<input type="submit" value="Place Order"  class="boxed-btn place_order" onsubmit="alert('Bạn Có Muốn Xóa Không?')">
 						        	</form>
 						        </div>
+								@endif
 						      </div>
 						    </div>
 						  </div>

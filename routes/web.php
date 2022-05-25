@@ -20,6 +20,8 @@ use App\Http\Controllers\ProductController;
 Route::get('/admin.dashboard',[ControllerAdmin::class, 'show_dashboard']);
 // Hiển thị product
 Route::get('/admin.admin_products',[ControllerAdmin::class, 'show_admin_product']);
+// Hiển Thị Câu Hỏi
+Route::get('/admin.admin_question',[ControllerAdmin::class, 'show_admin_question']);
 // Thêm User
 Route::get('/admin.adduser',[ControllerAdmin::class, 'show_admin_adduser']);
 // Hiển Thị User
@@ -49,6 +51,7 @@ Route::post('/saveprotype',[ControllerAdmin::class, 'save_protype']);
 Route::post('/saveuser',[ControllerAdmin::class, 'save_user']);
 Route::post('/saveadmin',[ControllerAdmin::class, 'save_admin']);
 
+Route::DELETE('deletequestion/{id}',[ControllerAdmin::class, 'destroy_question']);
 Route::DELETE('deletebilling/{id}',[ControllerAdmin::class, 'destroy_billing']);
 Route::DELETE('deleteadmin/{id}',[ControllerAdmin::class, 'destroy_admin']);
 Route::DELETE('deleteuser/{id}',[ControllerAdmin::class, 'destroy_user']);
@@ -93,4 +96,6 @@ Route::post('/saveplace',[MyController::class, 'save_placeOrder']);
  
 #Manage Review
 Route::post('/review-store',[PostController::class, 'reviewstore'])->name('review.store');
+///Question
+Route::post('/savequestion',[MyController::class, 'save_question']);
 

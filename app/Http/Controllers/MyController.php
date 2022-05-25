@@ -24,7 +24,7 @@ class MyController extends Controller
         $protypes = DB::table('protypes')->get();
         $Allproducts = DB::table('products')->get();
         $topSell = Product::where('feature','=',1)->get();
-        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $products = DB::table('products')->orderBy('id','DESC')->Paginate(6);
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
         //Tìm kiếm sản phẩm theo key
         if($key = request()->key){
@@ -57,7 +57,7 @@ class MyController extends Controller
     {
         $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $shop = Product::where('id', '=', $id)->select('*')->first();
-       
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
         //lấy đánh giá có post_id trùng với id sản phẩm đang chọn
         $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $des = html_entity_decode($shop->description);
@@ -160,5 +160,16 @@ class MyController extends Controller
         $data['saysomething'] = $request->bill;
         DB::table('billings')->insert($data);
         return Redirect::to('checkout');
+    }
+    public function save_question(Request $request)
+    {
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+        $data['subject'] = $request->subject;
+        $data['message'] = $request->message;
+        DB::table('question')->insert($data);
+        return view('contact');
     }
 }

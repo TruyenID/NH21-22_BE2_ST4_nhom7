@@ -151,6 +151,14 @@ class ControllerAdmin extends Controller
         DB::table('users')->where('id',$id)->delete();
         return Redirect::to('admin.admin_users');
     }
+     //Xóa User
+     public function destroy_question($id)
+     {
+         $this->AuthLogin();
+         DB::table('question')->where('id',$id)->delete();
+         return Redirect::to('admin.admin_question');
+     }
+    //Xóa billing
     public function destroy_billing($id)
     {
         $this->AuthLogin();
@@ -187,8 +195,8 @@ class ControllerAdmin extends Controller
             return Redirect::to('admin.login_admin')->send();
         }
     }
-      // Hiện Thị Billing
-      public function show_admin_billing(){
+    // Hiện Thị Billing
+    public function show_admin_billing(){
         $this->AuthLogin();
         
         $billings = DB::table('billings')->get();
@@ -202,6 +210,23 @@ class ControllerAdmin extends Controller
         $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
         return view('admin.admin_billings',compact('protypes','topSell',   
         'products','protypes','manufactures','Allproducts','users','billings'))
+       ;
+    }
+    // Hiện Thị Billing
+    public function show_admin_question(){
+        $this->AuthLogin();
+        $question =  DB::table('question')->get();
+        $billings = DB::table('billings')->get();
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        return view('admin.admin_question',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users','billings','question'))
        ;
     }
     // Hiện Thị Trang chủ Admin
@@ -405,7 +430,7 @@ class ControllerAdmin extends Controller
         $this->AuthLogin();
         Session::put('name',null);
         Session::put('id',null);
-        return Redirect::to('admin.login_admin');
+        return Redirect::to('index');
     }
 }
 

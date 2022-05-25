@@ -8,20 +8,16 @@
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
 					<div class="search-bar">
-						<form action="" class="form-inline">
-							<div class="search-bar-tablecell">
+						<form style="margin-top:150px" action="" class="search-bar-tablecell">
 							<h3>Search For:</h3>
-							<input name="key" type="text" placeholder="Keywords">
+							<input  name="key" type="text" placeholder="Keywords">
 							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
-	<!-- end search arewa -->
-	
+	</div>
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
