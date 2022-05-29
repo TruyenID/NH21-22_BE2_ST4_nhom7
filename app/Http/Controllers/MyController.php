@@ -55,9 +55,8 @@ class MyController extends Controller
     //Lấy id sản phẩm và type_id
     public function show($id, $type_id)
     {
-        $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $shop = Product::where('id', '=', $id)->select('*')->first();
-        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        // $products = DB::table('products')->orderBy('id')->Paginate(6);
         //lấy đánh giá có post_id trùng với id sản phẩm đang chọn
         $review_ratings = ReviewRating::where('post_id', '=',$id)->get();
         $des = html_entity_decode($shop->description);

@@ -20,7 +20,6 @@ class ControllerAdmin extends Controller
     }
 
     //Thêm Sản Phẩm Admin
-
     public function save_product(Request $request){ 
         $data = array();
         $data['name'] = $request->name;
@@ -186,6 +185,13 @@ class ControllerAdmin extends Controller
         DB::table('admins')->where('id',$id)->delete();
         return Redirect::to('admin.admin');
     }
+    // Xóa bình luận và đánh giá
+    public function destroy_review_ratings($id)
+    {
+        $this->AuthLogin();
+        DB::table('review_ratings')->where('id',$id)->delete();
+        return Redirect::to('admin.admin_reviewRatings');
+    }
     // Chặn Admin
     public function AuthLogin(){
         $id = Session::get('id');
@@ -194,6 +200,24 @@ class ControllerAdmin extends Controller
         }else{
             return Redirect::to('admin.login_admin')->send();
         }
+    }
+    //Hiển thị review_ratings
+    public function show_admin_review_ratings(){
+        $this->AuthLogin();
+        
+        $review_ratings = DB::table('review_ratings')->get();
+        $billings = DB::table('billings')->get();
+        $users = DB::table('users')->get();
+        $manufactures = DB::table('manufactures')->get();
+        $protypes = DB::table('protypes')->get();
+        $Allproducts = DB::table('products')->get();
+        $topSell = Product::where('feature','=',1)->get();
+        //  = Product::where('manu_id','=',1)->get();
+        $products = DB::table('products')->orderBy('id')->Paginate(6);
+        $topSell = DB::table('products')->where('feature','=',1)->Paginate($perPage = 3, $columns = ['*'], $pageName = 'topSell');
+        return view('admin.admin_reviewRating',compact('protypes','topSell',   
+        'products','protypes','manufactures','Allproducts','users','billings','review_ratings'))
+       ;
     }
     // Hiện Thị Billing
     public function show_admin_billing(){

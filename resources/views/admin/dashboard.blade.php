@@ -93,12 +93,23 @@
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>Question</h3>
-
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
               <a href="{{url ('admin.admin_question')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Review_Ratings</h3>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{{url ('admin.admin_reviewRating')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

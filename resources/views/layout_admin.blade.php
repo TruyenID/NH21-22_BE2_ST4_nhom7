@@ -177,6 +177,12 @@
                   <p>Questions</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{url ('admin.admin_reviewRating')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Review_Ratings</p>
+                </a>
+              </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

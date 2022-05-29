@@ -104,6 +104,7 @@
 					</div>
 				</div>
 				<!-- Display review section start -->
+            @if(Auth::check())
 				<div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
                   <div>
                      <div class="row mt-5">
@@ -187,6 +188,7 @@
                      </div>
                   </div>
                </div>
+               @endif
 			</div>
 		</div>
 	</div>

@@ -66,7 +66,7 @@
 								<li><a href="{{url ('about')}}">About</a></li>
 								<li><a href="#">Pages</a>
 									<ul class="sub-menu">
-										<li><a href="{{url ('index')}}">About</a></li>
+										<li><a href="{{url ('about')}}">About</a></li>
 										<li><a href="{{url ('cart')}}">Cart</a></li>
 										<li><a href="{{url ('checkout')}}">Check Out</a></li>
 										<li><a href="{{url ('contact')}}">Contact</a></li>

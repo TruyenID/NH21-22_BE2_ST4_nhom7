@@ -42,6 +42,8 @@ Route::get('/admin.addprotype',[ControllerAdmin::class, 'show_admin_addprotype']
 Route::post('/admin.dashboard',[ControllerAdmin::class, 'dashboard']);
 //Hiển thị giao diện Đơn hàng 
 Route::get('/admin.admin_billings',[ControllerAdmin::class, 'show_admin_billing']);
+//Hiển thị Review_Ratings
+Route::get('/admin.admin_reviewRating',[ControllerAdmin::class, 'show_admin_review_ratings']);
 // Logout trang admin
 Route::get('/logout',[ControllerAdmin::class, 'logout']);
 
@@ -58,6 +60,7 @@ Route::DELETE('deleteuser/{id}',[ControllerAdmin::class, 'destroy_user']);
 Route::DELETE('deleteproduct/{id}',[ProductController::class, 'destroy']);
 Route::DELETE('deletemanufacture/{id}',[ControllerAdmin::class, 'destroy_manu']);
 Route::DELETE('deleteprotype/{id}',[ControllerAdmin::class, 'destroy_type']);
+Route::DELETE('deletereview-rating/{id}',[ControllerAdmin::class, 'destroy_review_ratings(']);
 
 Route::get('admin_editproduct/{id}',[ProductController::class, 'edit']);
 Route::put('update_data/{id}',[ProductController::class, 'edit']);
